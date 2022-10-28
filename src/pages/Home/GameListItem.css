@@ -1,0 +1,51 @@
+.game-list-item-container {
+  width: 30%;
+  display: flex;
+  gap: 1rem;
+}
+
+.game-img {
+  width: 5rem;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.game-info-container {
+  width: calc(100% - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-title {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+.game-year {
+  font-size: larger;
+}
+
+.game-info-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.game-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: smaller;
+}
+
+@media screen and (orientation: portrait) {
+  .game-list-item-container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,127 @@
+.game-card {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.game-card-img {
+  width: 10rem;
+  height: 14rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.game-card-info {
+  width: calc((100% - 14rem) / 2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.game-card-title {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+.game-card-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.game-card-subtitle-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.game-card-year {
+  font-size: x-large;
+}
+
+.game-card-rating {
+  display: flex;
+  gap: 0.5rem;
+  font-size: smaller;
+}
+
+.game-card-description {
+  text-align: justify;
+}
+
+.game-card-info-bottom-container {
+  display: flex;
+  align-self: flex-end;
+  gap: 0.5rem;
+}
+
+.game-card-option-icon {
+  font-size: larger;
+}
+
+.game-card-video-outer-container {
+  width: calc((100% - 14rem) / 2);
+  display: flex;
+  align-items: flex-start;
+}
+
+.game-card-video-inner-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.game-card-video-inner-container iframe {
+  width: 70%;
+  aspect-ratio: 16/9;
+}
+
+.game-card-video-arrow {
+  font-size: xx-large;
+}
+
+@media screen and (orientation: portrait) {
+  .game-card {
+    flex-direction: column;
+  }
+
+  .game-card-img {
+    width: 7.5rem;
+    height: unset;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    align-self: center;
+  }
+
+  .game-card-info,
+  .game-card-video-outer-container {
+    width: 100%;
+  }
+
+  .game-card-video-outer-container {
+    margin-top: 2rem;
+  }
+
+  .game-card-option-icon {
+    font-size: larger;
+  }
+
+  .game-card-video-inner-container {
+    justify-content: space-between;
+    gap: unset;
+  }
+
+  .game-card-video-inner-container iframe {
+    width: 80%;
+    aspect-ratio: 16/9;
+  }
+
+  .game-card-video-arrow {
+    font-size: larger;
+  }
+}

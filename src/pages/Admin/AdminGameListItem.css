@@ -1,0 +1,67 @@
+.admin-game-list-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-column {
+  display: flex;
+  align-items: center;
+}
+
+.admin-game-img {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.admin-game-year,
+.admin-game-rating {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.admin-game-name {
+  flex: 4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-game-genre {
+  flex: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-game-rating {
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: smaller;
+}
+
+.admin-game-options-icon {
+  font-size: medium;
+  flex: 1;
+}
+
+@media screen and (orientation: portrait) {
+  .admin-game-column {
+    font-size: smaller;
+  }
+
+  .admin-game-img {
+    display: none;
+  }
+
+  .admin-game-rating {
+    font-size: x-small;
+  }
+}

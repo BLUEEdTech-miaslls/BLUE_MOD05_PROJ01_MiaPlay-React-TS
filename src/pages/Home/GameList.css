@@ -1,0 +1,47 @@
+.game-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.game-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.genre {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+}
+
+.game-list-expand-collapse-icon {
+  font-size: larger;
+}
+
+.game-list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 5%;
+}
+
+.game-list-collapse {
+  display: flex;
+  align-self: center;
+  align-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-size: larger;
+}
+
+.game-list-collapse-text {
+  font-family: scandia-line-web-stencil, sans-serif;
+}
+
+@media screen and (orientation: portrait) {
+  .game-list-items {
+    flex-direction: column;
+  }
+}

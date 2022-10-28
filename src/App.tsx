@@ -1,5 +1,14 @@
+import "./styles/App.css";
+
+import { BrowserRouter } from "react-router-dom";
+import Router from "./routers";
+
 function App() {
-  return <></>;
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.header-left {
+  width: 3.75rem;
+}
+
+.header-left img {
+  width: 3.75rem;
+}
+
+.main-menu {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.main-menu-item {
+  font-size: large;
+}
+
+@media screen and (orientation: portrait) {
+  header {
+    margin-bottom: 4rem;
+  }
+}
