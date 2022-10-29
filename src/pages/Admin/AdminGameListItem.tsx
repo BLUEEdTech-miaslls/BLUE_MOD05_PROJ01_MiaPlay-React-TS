@@ -18,7 +18,7 @@ const AdminGameListItem = () => {
         </div>
 
         <div className="admin-game-column admin-game-genre">
-          fantasy, simulation, strategy
+          fantasy, simulation, genre
         </div>
 
         <div className="admin-game-column admin-game-rating">
@@ -26,10 +26,9 @@ const AdminGameListItem = () => {
             <i className="bi bi-star"></i>
           </div>
           <div className="admin-game-rating-text">6.8</div>
-
-          <div className="admin-game-options-icon clickable">
-            <i className="bi bi-x"></i>
-          </div>
+        </div>
+        <div className="admin-game-options-icon clickable">
+          <i className="bi bi-x"></i>
         </div>
       </li>
     </>
