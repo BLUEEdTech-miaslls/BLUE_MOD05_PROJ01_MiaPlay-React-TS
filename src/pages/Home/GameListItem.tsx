@@ -22,7 +22,7 @@ const GameListItem = () => {
               <div className="game-rating-icon">
                 <i className="bi bi-star"></i>
               </div>
-              <div className="game-rating-text">6.8/10</div>
+              <div className="game-rating-text">6.8</div>
             </div>
 
             <div className="game-favorite clickable">
