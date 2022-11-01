@@ -39,3 +39,13 @@
 .login-button {
   font-size: x-large;
 }
+
+.login-notice {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-notice-icon {
+  font-size: x-large;
+}
