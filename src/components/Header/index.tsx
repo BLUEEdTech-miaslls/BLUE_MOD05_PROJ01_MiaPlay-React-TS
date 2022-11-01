@@ -3,7 +3,7 @@ import "./Header.css";
 import Menu from "../Menu";
 import { MenuProps } from "../Menu/types";
 
-const Header = ({ active, navItems }: MenuProps) => {
+const Header = ({ active, navItems, onNavigate }: MenuProps) => {
   return (
     <>
       <header>
@@ -13,7 +13,7 @@ const Header = ({ active, navItems }: MenuProps) => {
           </h1>
 
           <div className="main-menu">
-            <Menu active={active} navItems={navItems} />
+            <Menu active={active} navItems={navItems} onNavigate={onNavigate} />
           </div>
         </div>
       </header>

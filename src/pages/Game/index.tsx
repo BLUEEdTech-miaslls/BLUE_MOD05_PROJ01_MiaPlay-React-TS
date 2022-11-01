@@ -3,17 +3,25 @@ import "./Game.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-// import { RoutePath } from "../../types/routes";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "../../types/routes";
 import { navigationItems } from "../../data/navigation";
 
 import gameCardImg from "../../mocks/img/the-sims-4.png";
 
 const Game = () => {
+  const navigate = useNavigate();
+  const handleNavigation = (path: RoutePath) => navigate(path);
+
   return (
     <>
       <div className="generic-page-container">
         <div className="wrapper">
-          <Header active={false} navItems={navigationItems} />
+          <Header
+            active={false}
+            navItems={navigationItems}
+            onNavigate={handleNavigation}
+          />
 
           <main className="game-card">
             <div
@@ -82,7 +90,11 @@ const Game = () => {
         </div>
 
         <div className="wrapper">
-          <Footer active={false} navItems={navigationItems} />
+          <Footer
+            active={false}
+            navItems={navigationItems}
+            onNavigate={handleNavigation}
+          />
         </div>
       </div>
     </>

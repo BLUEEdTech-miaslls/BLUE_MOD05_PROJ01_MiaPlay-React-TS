@@ -4,15 +4,23 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AdminGameListItem from "./AdminGameListItem";
 
+import { useNavigate } from "react-router-dom";
 import { RoutePath } from "../../types/routes";
 import { navigationItems } from "../../data/navigation";
 
 const Admin = () => {
+  const navigate = useNavigate();
+  const handleNavigation = (path: RoutePath) => navigate(path);
+
   return (
     <>
       <div className="generic-page-container">
         <div className="wrapper">
-          <Header active={RoutePath.ADMIN} navItems={navigationItems} />
+          <Header
+            active={RoutePath.ADMIN}
+            navItems={navigationItems}
+            onNavigate={handleNavigation}
+          />
           <main className="admin-page-container">
             <section className="admin-section admin-games-container">
               <div className="admin-section-header">
@@ -29,11 +37,6 @@ const Admin = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="admin-games-filters-wrapper">
-                  <Search />
-                  <Sort />
-                </div> */}
               </div>
 
               <ul className="admin-game-list">
@@ -122,7 +125,11 @@ const Admin = () => {
             </aside>
           </main>
         </div>
-        <Footer active={RoutePath.ADMIN} navItems={navigationItems} />
+        <Footer
+          active={RoutePath.ADMIN}
+          navItems={navigationItems}
+          onNavigate={handleNavigation}
+        />
       </div>
     </>
   );

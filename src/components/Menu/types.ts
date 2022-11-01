@@ -8,4 +8,5 @@ export interface NavItem {
 export interface MenuProps {
   active: RoutePath | false;
   navItems: NavItem[];
+  onNavigate: (data: RoutePath) => void;
 }

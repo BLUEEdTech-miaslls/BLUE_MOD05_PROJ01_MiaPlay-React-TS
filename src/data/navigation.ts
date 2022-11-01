@@ -3,15 +3,15 @@ import { NavItem } from "../components/Menu/types";
 
 export const navigationItems: NavItem[] = [
   {
-    icon: "person",
-    path: RoutePath.LOGIN,
+    icon: "house",
+    path: RoutePath.HOME,
   },
   {
     icon: "sliders",
     path: RoutePath.ADMIN,
   },
   {
-    icon: "house",
-    path: RoutePath.HOME,
+    icon: "person",
+    path: RoutePath.LOGIN,
   },
 ];
