@@ -2,16 +2,17 @@ import "./Admin.css";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-// import Search from "../../components/Search";
-// import Sort from "../../components/Sort";
 import AdminGameListItem from "./AdminGameListItem";
+
+import { RoutePath } from "../../types/routes";
+import { navigationItems } from "../../data/navigation";
 
 const Admin = () => {
   return (
     <>
       <div className="generic-page-container">
         <div className="wrapper">
-          <Header />
+          <Header active={RoutePath.ADMIN} navItems={navigationItems} />
           <main className="admin-page-container">
             <section className="admin-section admin-games-container">
               <div className="admin-section-header">
@@ -121,7 +122,7 @@ const Admin = () => {
             </aside>
           </main>
         </div>
-        <Footer />
+        <Footer active={RoutePath.ADMIN} navItems={navigationItems} />
       </div>
     </>
   );

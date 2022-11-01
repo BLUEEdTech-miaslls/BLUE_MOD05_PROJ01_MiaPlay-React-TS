@@ -3,6 +3,9 @@ import "./Game.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
+// import { RoutePath } from "../../types/routes";
+import { navigationItems } from "../../data/navigation";
+
 import gameCardImg from "../../mocks/img/the-sims-4.png";
 
 const Game = () => {
@@ -10,7 +13,7 @@ const Game = () => {
     <>
       <div className="generic-page-container">
         <div className="wrapper">
-          <Header />
+          <Header active={false} navItems={navigationItems} />
 
           <main className="game-card">
             <div
@@ -79,7 +82,7 @@ const Game = () => {
         </div>
 
         <div className="wrapper">
-          <Footer />
+          <Footer active={false} navItems={navigationItems} />
         </div>
       </div>
     </>

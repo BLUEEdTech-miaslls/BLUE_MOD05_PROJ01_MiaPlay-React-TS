@@ -7,8 +7,6 @@ footer {
 }
 
 .footer-menu {
-  display: flex;
-  gap: 0.5rem;
   font-size: medium;
 }
 
