@@ -14,7 +14,7 @@ import GenreGameListService from "../../services/GenreGameListService";
 import { GenreGameList } from "../../types/api/genreGameList";
 
 import GameService from "../../services/GameService";
-import { Game } from "../../types/api/game";
+import { Game, GameUpdateFavorite } from "../../types/api/game";
 
 const Home = () => {
   // 📌 Menu navigation
@@ -76,6 +76,18 @@ const Home = () => {
     getFavoriteGames();
   }, []);
 
+  // 📌 toggleFavoriteGame
+
+  const toggleFavoriteGame = async (id: string, favorite: boolean) => {
+    const body: GameUpdateFavorite = { favorite: favorite ? false : true };
+    const response: Game = await GameService.update(id, body);
+
+    if (response) {
+      getGameLists();
+      getFavoriteGames();
+    }
+  };
+
   // 📌📌📌🚨 HOME return
 
   return (
@@ -83,12 +95,16 @@ const Home = () => {
       <Header
         active={RoutePath.HOME}
         navItems={navigationItems}
-        onNavigate={handleNavigation}
+        handleNavigation={handleNavigation}
       />
 
       <main className="game-lists">
-        {favoriteGames && (
-          <GameList name="favorite games" games={favoriteGames.games} />
+        {favoriteGames && favoriteGames.games.length > 0 && (
+          <GameList
+            name="favorite games"
+            games={favoriteGames.games}
+            toggleFavorite={toggleFavoriteGame}
+          />
         )}
 
         {genreGameLists &&
@@ -97,6 +113,7 @@ const Home = () => {
               key={`game-list-${index}`}
               name={list.genre.name}
               games={list.games}
+              toggleFavorite={toggleFavoriteGame}
             />
           ))}
 
@@ -106,7 +123,7 @@ const Home = () => {
       <Footer
         active={RoutePath.HOME}
         navItems={navigationItems}
-        onNavigate={handleNavigation}
+        handleNavigation={handleNavigation}
       />
     </>
   );

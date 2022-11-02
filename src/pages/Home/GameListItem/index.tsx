@@ -3,11 +3,13 @@ import "./GameListItem.css";
 import { GameListItemProps } from "./types";
 
 const GameListItem = ({
+  id,
   image,
   title,
   year,
   rating,
   favorite,
+  toggleFavorite,
 }: GameListItemProps) => {
   return (
     <>
@@ -31,7 +33,10 @@ const GameListItem = ({
               <div className="game-rating-text">{rating}</div>
             </div>
 
-            <div className="game-favorite clickable">
+            <div
+              className="game-favorite clickable"
+              onClick={() => toggleFavorite(id, favorite)}
+            >
               {favorite ? (
                 <i className="bi bi-heart-fill"></i>
               ) : (
