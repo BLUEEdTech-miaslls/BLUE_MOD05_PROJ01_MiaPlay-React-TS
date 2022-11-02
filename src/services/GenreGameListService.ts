@@ -1,13 +1,11 @@
-import { Api } from "../helpers/endpoints/Api";
 import { endpoints } from "../helpers/endpoints";
 import { GenreGameList } from "../types/api/genreGameList";
 
-export default class GenreGameListService {
-  static getAll(): Promise<GenreGameList[]> {
-    const response = Api(endpoints.allGenreGameLists(), {
+const GenreGameListService = {
+  getAll: (): Promise<GenreGameList[]> =>
+    fetch(endpoints.allGenreGameLists(), {
       method: "GET",
-    }).then((response) => response.json());
+    }).then((response: Response) => response.json()),
+};
 
-    return response;
-  }
-}
+export default GenreGameListService;

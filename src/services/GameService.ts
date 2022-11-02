@@ -1,58 +1,39 @@
-import { Api } from "../helpers/endpoints/Api";
 import { endpoints } from "../helpers/endpoints";
 import { Game, GameBody, GameUpdateFavorite } from "../types/api/game";
 
-export default class GameService {
-  static getAll(): Promise<Game[]> {
-    const response = Api(endpoints.allGenres(), {
+const GameService = {
+  getAll: (): Promise<Game[]> =>
+    fetch(endpoints.allGames(), {
       method: "GET",
-    }).then((response) => response.json());
+    }).then((response: Response) => response.json()),
 
-    return response;
-  }
-
-  static getById(id: string): Promise<Game> {
-    const response = Api(endpoints.genreById(id), {
+  getById: (id: string): Promise<Game[]> =>
+    fetch(endpoints.gameById(id), {
       method: "GET",
-    }).then((response) => response.json());
+    }).then((response: Response) => response.json()),
 
-    return response;
-  }
-
-  static create(body: GameBody): Promise<Game> {
-    const response = Api(endpoints.createGenre(), {
+  create: (body: GameBody): Promise<Game> =>
+    fetch(endpoints.createGame(), {
       method: "POST",
       body: JSON.stringify(body),
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response) => response.json());
+    }).then((response: Response) => response.json()),
 
-    return response;
-  }
-
-  static update(
-    id: string,
-    body: GameBody | GameUpdateFavorite
-  ): Promise<Game> {
-    const response = Api(endpoints.updateGenre(id), {
+  update: (id: string, body: GameBody | GameUpdateFavorite): Promise<Game> =>
+    fetch(endpoints.updateGame(id), {
       method: "PATCH",
       body: JSON.stringify(body),
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response) => response.json());
+    }).then((response: Response) => response.json()),
 
-    return response;
-  }
+  remove: (id: string): Promise<boolean> =>
+    fetch(endpoints.removeGame(id), { method: "DELETE" }).then(
+      (response: Response) => response.ok
+    ),
+};
 
-  static remove(id: string): Promise<Game> {
-    const response = Api(endpoints.removeGenre(id), {
-      method: "DELETE",
-    }).then((response) => response.json());
-
-    return response;
-  }
-}
+export default GameService;
