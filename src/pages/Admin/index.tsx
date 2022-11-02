@@ -19,7 +19,7 @@ const Admin = () => {
           <Header
             active={RoutePath.ADMIN}
             navItems={navigationItems}
-            onNavigate={handleNavigation}
+            handleNavigation={handleNavigation}
           />
           <main className="admin-page-container">
             <section className="admin-section admin-games-container">
@@ -128,7 +128,7 @@ const Admin = () => {
         <Footer
           active={RoutePath.ADMIN}
           navItems={navigationItems}
-          onNavigate={handleNavigation}
+          handleNavigation={handleNavigation}
         />
       </div>
     </>

@@ -20,7 +20,7 @@ const Game = () => {
           <Header
             active={false}
             navItems={navigationItems}
-            onNavigate={handleNavigation}
+            handleNavigation={handleNavigation}
           />
 
           <main className="game-card">
@@ -93,7 +93,7 @@ const Game = () => {
           <Footer
             active={false}
             navItems={navigationItems}
-            onNavigate={handleNavigation}
+            handleNavigation={handleNavigation}
           />
         </div>
       </div>

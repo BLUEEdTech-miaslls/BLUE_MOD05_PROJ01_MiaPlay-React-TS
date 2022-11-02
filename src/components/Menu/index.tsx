@@ -2,7 +2,7 @@ import "./Menu.css";
 
 import { MenuProps } from "./types";
 
-const Menu = ({ active, navItems, onNavigate }: MenuProps) => {
+const Menu = ({ active, navItems, handleNavigation }: MenuProps) => {
   return (
     <>
       <nav className="menu">
@@ -12,7 +12,7 @@ const Menu = ({ active, navItems, onNavigate }: MenuProps) => {
               item.path === active ? "menu-item-active" : "clickable"
             }`}
             key={`menu-item-${index}`}
-            onClick={() => onNavigate(item.path)}
+            onClick={() => handleNavigation(item.path)}
           >
             <i className={`bi bi-${item.icon}`}></i>
           </div>
