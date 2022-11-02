@@ -12,11 +12,10 @@ export interface GameBody {
 }
 
 export interface GameUpdateFavorite {
-  id: string;
   favorite: boolean;
 }
 
 export interface Game extends GameBody {
-  id: string;
+  _id: string;
   favorite: boolean;
 }

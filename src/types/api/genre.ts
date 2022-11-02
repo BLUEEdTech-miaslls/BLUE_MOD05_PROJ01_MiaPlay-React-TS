@@ -3,5 +3,5 @@ export interface GenreBody {
 }
 
 export interface Genre extends GenreBody {
-  id: string;
+  _id: string;
 }
