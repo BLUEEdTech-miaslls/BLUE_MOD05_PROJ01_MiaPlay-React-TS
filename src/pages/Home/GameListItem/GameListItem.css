@@ -5,7 +5,7 @@
 }
 
 .game-img {
-  width: 5rem;
+  width: 4rem;
   aspect-ratio: 1;
   background-size: cover;
   background-position: center;
@@ -34,7 +34,7 @@
 .game-info-bottom-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 2rem;
 }
 
 .game-rating {
