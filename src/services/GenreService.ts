@@ -2,7 +2,7 @@ import { Api } from "../helpers/endpoints/Api";
 import { endpoints } from "../helpers/endpoints";
 import { Genre, GenreBody } from "../types/api/genre";
 
-class GenreService {
+export default class GenreService {
   static getAll(): Promise<Genre[]> {
     const response = Api(endpoints.allGenres(), {
       method: "GET",
@@ -53,5 +53,3 @@ class GenreService {
     return response;
   }
 }
-
-export default GenreService;
