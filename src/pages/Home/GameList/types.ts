@@ -1,5 +1,7 @@
-import { GenreGameList } from "../../../types/api/genreGameList";
+import { Game } from "../../../types/api/game";
+import { Genre } from "../../../types/api/genre";
 
 export interface GameListProps {
-  list: GenreGameList;
+  genre: Genre;
+  games: Game[];
 }
