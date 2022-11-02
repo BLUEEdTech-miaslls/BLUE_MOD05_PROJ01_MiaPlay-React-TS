@@ -1,8 +1,9 @@
 import "./GameList.css";
 
-import GameListItem from "./GameListItem";
+import GameListItem from "../GameListItem";
+import { GameListProps } from "./types";
 
-const GameList = () => {
+const GameList = ({ list }: GameListProps) => {
   return (
     <>
       <section className="game-list-container">

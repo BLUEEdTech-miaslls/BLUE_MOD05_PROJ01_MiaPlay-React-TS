@@ -1,6 +1,6 @@
 import "./GameListItem.css";
 
-import gameImg from "../../mocks/img/the-sims-4.png";
+import gameImg from "../../../mocks/img/the-sims-4.png";
 
 const GameListItem = () => {
   return (
