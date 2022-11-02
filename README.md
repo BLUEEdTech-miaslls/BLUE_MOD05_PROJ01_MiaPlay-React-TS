@@ -7,13 +7,37 @@
 
 ---
 
-## Critérios de Avaliação
+&ensp;
+
+&ensp;
+
+&ensp;
+
+---
+
+---
+
+## **TODO:**
+
+- 🔳 **API:** return RESPONSE on remove requests
+
+---
+
+- ✅
+
+---
+
+---
+
+## **Critérios de Avaliação**
 
 Frontend ReactTS
 
+---
+
 - ✅ Estilizar utilizando CSS (1,5 ponto); ✔
-- 🔳 Consumir a API (backend) utilizando o Axios (1 ponto);
-- 🔳 Estruturar as pastas e melhorar a arquitetura do projeto (0,5 ponto);
+- 🔳 Consumir a API (backend) utilizando o Axios (1 ponto); `❗❗❗ OBS: fetch`
+- ✅ Estruturar as pastas e melhorar a arquitetura do projeto (0,5 ponto);
 - ✅ Criar a página Homepage (1 ponto); ✔
 - ✅ Criar o componente Lista de Jogos (1 ponto). ✔
 - ✅ Criar a página de Login (1 ponto); ✔
@@ -23,3 +47,7 @@ Frontend ReactTS
   - 🔳 Criar a sessão de jogos favoritos (1 ponto);
   - 🔳 Criar a sessão de jogos classificados por gênero (1 ponto);
 - 🔳 Criar a página de CRUD de jogos e gêneros (1 ponto).
+
+---
+
+---
