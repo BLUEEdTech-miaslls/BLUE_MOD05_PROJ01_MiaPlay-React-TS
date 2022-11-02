@@ -3,7 +3,7 @@ import "./GameList.css";
 import GameListItem from "../GameListItem";
 import { GameListProps } from "./types";
 
-const GameList = ({ genre, games }: GameListProps) => {
+const GameList = ({ name, games }: GameListProps) => {
   games.sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0));
 
   return (
@@ -11,7 +11,7 @@ const GameList = ({ genre, games }: GameListProps) => {
       <section className="game-list-container">
         <div className="game-list-header">
           <div className="genre">
-            <h2>{genre.name}</h2>
+            <h2>{name}</h2>
           </div>
         </div>
 
