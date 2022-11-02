@@ -7,5 +7,5 @@ export const genres = {
   createGenre: () => genres.endpoint(),
   genreById: (id: string) => `${genres.endpoint()}/${id}`,
   updateGenre: (id: string) => `${genres.endpoint()}/${id}`,
-  deleteGenre: (id: string) => `${genres.endpoint()}/${id}`,
+  removeGenre: (id: string) => `${genres.endpoint()}/${id}`,
 };

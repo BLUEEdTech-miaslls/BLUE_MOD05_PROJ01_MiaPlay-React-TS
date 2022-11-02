@@ -4,8 +4,8 @@ export const games = {
   endpoint: () => `${endpoints.baseUrl}/games`,
 
   allGames: () => games.endpoint(),
-  createGenre: () => games.endpoint(),
-  genreById: (id: string) => `${games.endpoint()}/${id}`,
-  updateGenre: (id: string) => `${games.endpoint()}/${id}`,
-  deleteGenre: (id: string) => `${games.endpoint()}/${id}`,
+  createGame: () => games.endpoint(),
+  gameById: (id: string) => `${games.endpoint()}/${id}`,
+  updateGame: (id: string) => `${games.endpoint()}/${id}`,
+  removeGame: (id: string) => `${games.endpoint()}/${id}`,
 };
