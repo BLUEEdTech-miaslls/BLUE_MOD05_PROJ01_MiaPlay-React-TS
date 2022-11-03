@@ -5,8 +5,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
 
-import { RoutePath } from "../../types/routes";
-import { navigationItems } from "../../data/navigation";
+import { RoutePath } from "../../routers/routes";
+import { navigationItems } from "../../components/Menu/navigation";
 
 import GameCard from "./GameCard";
 

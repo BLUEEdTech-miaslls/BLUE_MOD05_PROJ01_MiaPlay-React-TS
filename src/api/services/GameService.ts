@@ -1,5 +1,5 @@
-import { endpoints } from "../helpers/endpoints";
-import { Game, GameBody, GameUpdateFavorite } from "../types/api/game";
+import { endpoints } from "../endpoints";
+import { Game, GameBody, GameUpdateFavorite } from "../types/game";
 
 const GameService = {
   getAll: (): Promise<Game[]> =>

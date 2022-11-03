@@ -1,5 +1,5 @@
-import { endpoints } from "../helpers/endpoints";
-import { GenreGameList } from "../types/api/genreGameList";
+import { endpoints } from "../endpoints";
+import { GenreGameList } from "../types/genreGameList";
 
 const GenreGameListService = {
   getAll: (): Promise<GenreGameList[]> =>

@@ -5,8 +5,8 @@ import Footer from "../../components/Footer";
 import AdminGameListItem from "./AdminGameListItem";
 
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "../../types/routes";
-import { navigationItems } from "../../data/navigation";
+import { RoutePath } from "../../routers/routes";
+import { navigationItems } from "../../components/Menu/navigation";
 
 const Admin = () => {
   const navigate = useNavigate();

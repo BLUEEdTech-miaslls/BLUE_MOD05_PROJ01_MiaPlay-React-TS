@@ -1,7 +1,7 @@
 import "./GameListItem.css";
 
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "../../../types/routes";
+import { RoutePath } from "../../../routers/routes";
 
 import { GameListItemProps } from "./types";
 

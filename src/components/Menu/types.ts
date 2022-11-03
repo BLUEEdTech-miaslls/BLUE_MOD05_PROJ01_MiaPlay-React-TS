@@ -1,4 +1,4 @@
-import { RoutePath } from "../../types/routes";
+import { RoutePath } from "../../routers/routes";
 
 export interface NavItem {
   icon: String;

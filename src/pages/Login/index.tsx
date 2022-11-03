@@ -3,7 +3,7 @@ import "./Login.css";
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "../../types/routes";
+import { RoutePath } from "../../routers/routes";
 
 const Login = () => {
   const navigate = useNavigate();

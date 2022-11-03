@@ -1,4 +1,4 @@
-import { Game } from "../../../types/api/game";
+import { Game } from "../../../api/types/game";
 
 export interface GameListItemProps {
   id: string;

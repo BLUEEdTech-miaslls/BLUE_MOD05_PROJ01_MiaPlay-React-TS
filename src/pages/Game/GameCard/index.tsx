@@ -2,12 +2,12 @@ import "./GameCard.css";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "../../../types/routes";
+import { RoutePath } from "../../../routers/routes";
 
 import { GameCardProps } from "./types";
 
-import GameService from "../../../services/GameService";
-import { Game, GameUpdateFavorite } from "../../../types/api/game";
+import GameService from "../../../api/services/GameService";
+import { Game, GameUpdateFavorite } from "../../../api/types/game";
 
 const GameCard = ({ gameId, showLoading, setShowLoading }: GameCardProps) => {
   const emptyGame: Game = {

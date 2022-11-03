@@ -1,5 +1,5 @@
-import { RoutePath } from "../types/routes";
-import { NavItem } from "../components/Menu/types";
+import { RoutePath } from "../../routers/routes";
+import { NavItem } from "./types";
 
 export const navigationItems: NavItem[] = [
   {
