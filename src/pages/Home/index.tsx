@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Loading from "../../components/Loading";
 
 import { RoutePath } from "../../types/routes";
 import { navigationItems } from "../../data/navigation";
@@ -17,10 +18,10 @@ import GameService from "../../services/GameService";
 import { Game, GameUpdateFavorite } from "../../types/api/game";
 
 const Home = () => {
-  // 📌 Menu navigation
-
   const navigate = useNavigate();
   const handleNavigation = (path: RoutePath) => navigate(path);
+
+  const [showLoading, setShowLoading] = useState<boolean>(true);
 
   // 📌 getGameLists
 
@@ -30,6 +31,8 @@ const Home = () => {
   >([]);
 
   const getGameLists = async () => {
+    setShowLoading(true);
+
     const response = await GenreGameListService.getAll();
 
     response.length === 0
@@ -39,6 +42,7 @@ const Home = () => {
         );
 
     setGenreGameLists(response);
+    setShowLoading(false);
   };
 
   useEffect(() => {
@@ -82,51 +86,55 @@ const Home = () => {
     const body: GameUpdateFavorite = { favorite: favorite ? false : true };
     const response: Game = await GameService.update(id, body);
 
-    if (response._id) {
-      getGameLists();
-      getFavoriteGames();
-    } else {
-      navigate(RoutePath.NOTFOUND);
-    }
+    getGameLists();
+    getFavoriteGames();
   };
 
   // 📌📌📌🚨 HOME return
 
   return (
     <>
-      <Header
-        active={RoutePath.HOME}
-        navItems={navigationItems}
-        handleNavigation={handleNavigation}
-      />
-
-      <main className="game-lists">
-        {favoriteGames && favoriteGames.games.length > 0 && (
-          <GameList
-            name="favorite games"
-            games={favoriteGames.games}
-            toggleFavorite={toggleFavoriteGame}
+      <div className="generic-page-container">
+        <div className="wrapper">
+          <Header
+            active={RoutePath.HOME}
+            navItems={navigationItems}
+            handleNavigation={handleNavigation}
           />
-        )}
 
-        {genreGameLists &&
-          genreGameLists.map((list, index) => (
-            <GameList
-              key={`game-list-${index}`}
-              name={list.genre.name}
-              games={list.games}
-              toggleFavorite={toggleFavoriteGame}
-            />
-          ))}
+          {!showLoading && (
+            <main className="game-lists">
+              {favoriteGames && favoriteGames.games.length > 0 && (
+                <GameList
+                  name="favorite games"
+                  games={favoriteGames.games}
+                  toggleFavorite={toggleFavoriteGame}
+                />
+              )}
 
-        {showEmptyNotice && <h2>GAME LIST EMPTY</h2>}
-      </main>
+              {genreGameLists &&
+                genreGameLists.map((list, index) => (
+                  <GameList
+                    key={`game-list-${index}`}
+                    name={list.genre.name}
+                    games={list.games}
+                    toggleFavorite={toggleFavoriteGame}
+                  />
+                ))}
 
-      <Footer
-        active={RoutePath.HOME}
-        navItems={navigationItems}
-        handleNavigation={handleNavigation}
-      />
+              {showEmptyNotice && <h2>GAME LIST EMPTY</h2>}
+            </main>
+          )}
+
+          {showLoading && <Loading />}
+        </div>
+
+        <Footer
+          active={RoutePath.HOME}
+          navItems={navigationItems}
+          handleNavigation={handleNavigation}
+        />
+      </div>
     </>
   );
 };
