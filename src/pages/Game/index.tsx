@@ -19,29 +19,50 @@ const Game = () => {
   // 📌 getGame
 
   const [game, setGame] = useState<IGame | undefined>();
+  const [videoIdList, setVideoIdList] = useState<string[]>([]);
 
   const { gameId } = useParams();
 
   const getGameById = async (id: string) => {
     const response = await GameService.getById(id);
-    setGame(response);
+
+    if (response._id) {
+      const youTubeTrailer = response.trailer_youTubeUrl.split("=")[1];
+      const youTubeGameplay = response.gameplay_youTubeUrl.split("=")[1];
+
+      setGame(response);
+      setVideoIdList([youTubeTrailer, youTubeGameplay]);
+      setVideoShown(youTubeTrailer);
+    } else {
+      navigate(RoutePath.NOTFOUND);
+    }
   };
 
   useEffect(() => {
-    gameId ? getGameById(gameId) : false; // TODO: navigate to 404
+    gameId ? getGameById(gameId) : false; // 🤦‍♀️
   }, []);
 
   // 📌 toggleFavorite
 
-  // TODO: LOADING + 404
+  // TODO: LOADING
 
   const toggleFavorite = async (id: string, favorite: boolean) => {
     if (gameId) {
       const body: GameUpdateFavorite = { favorite: favorite ? false : true };
       const response: IGame = await GameService.update(id, body);
 
-      getGameById(gameId);
+      response._id ? getGameById(gameId) : navigate(RoutePath.NOTFOUND);
     }
+  };
+
+  // 📌 changeVideo
+
+  const [videoShown, setVideoShown] = useState<string | undefined>();
+
+  const changeVideo = () => {
+    videoShown === videoIdList[0]
+      ? setVideoShown(videoIdList[1])
+      : setVideoShown(videoIdList[0]);
   };
 
   // 📌📌📌🚨 GAME return
@@ -104,21 +125,24 @@ const Game = () => {
 
             <div className="game-card-video-outer-container">
               <div className="game-card-video-inner-container">
-                <div className="game-card-video-arrow clickable">
+                <div
+                  className="game-card-video-arrow clickable"
+                  onClick={() => changeVideo()}
+                >
                   <i className="bi bi-chevron-double-left"></i>
                 </div>
 
-                {/* TODO: format youtube links */}
-                {/* TODO: toggle video */}
-
                 <iframe
-                  src="https://www.youtube.com/embed/GJENRAB4ykA"
+                  src={`https://www.youtube.com/embed/${videoShown}`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-                <div className="game-card-video-arrow clickable">
+                <div
+                  className="game-card-video-arrow clickable"
+                  onClick={() => changeVideo()}
+                >
                   <i className="bi bi-chevron-double-right"></i>
                 </div>
               </div>

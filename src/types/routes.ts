@@ -3,4 +3,5 @@ export enum RoutePath {
   LOGIN = "/login",
   ADMIN = "/admin",
   GAME = "/game",
+  NOTFOUND = "/404",
 }

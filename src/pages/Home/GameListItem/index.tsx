@@ -14,7 +14,13 @@ const GameListItem = ({
   favorite,
   toggleFavorite,
 }: GameListItemProps) => {
+  // 📌 handleOpenGame
+
   const navigate = useNavigate();
+
+  const handleOpenGame = (id: string | undefined) => {
+    id ? navigate(`${RoutePath.GAME}/${id}`) : navigate(RoutePath.NOTFOUND);
+  };
 
   return (
     <>
@@ -41,7 +47,7 @@ const GameListItem = ({
             <div className="game-info-icons">
               <div
                 className="game-info-icon clickable"
-                onClick={() => navigate(`${RoutePath.GAME}/${id}`)}
+                onClick={() => handleOpenGame(id)}
               >
                 <i className="bi bi-info-circle"></i>
               </div>
