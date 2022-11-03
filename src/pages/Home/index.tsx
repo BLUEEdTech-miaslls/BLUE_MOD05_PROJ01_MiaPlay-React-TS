@@ -83,11 +83,18 @@ const Home = () => {
   // 📌 toggleFavoriteGame
 
   const toggleFavoriteGame = async (id: string, favorite: boolean) => {
+    setShowLoading(true);
+
     const body: GameUpdateFavorite = { favorite: favorite ? false : true };
     const response: Game = await GameService.update(id, body);
 
-    getGameLists();
-    getFavoriteGames();
+    if (!response._id) {
+      navigate(RoutePath.NOTFOUND);
+    } else {
+      getGameLists();
+      getFavoriteGames();
+      setShowLoading(false);
+    }
   };
 
   // 📌📌📌🚨 HOME return

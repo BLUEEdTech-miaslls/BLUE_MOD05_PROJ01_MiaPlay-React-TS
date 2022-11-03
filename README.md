@@ -19,14 +19,18 @@
 
 ## **TODO:**
 
-- 🔳 LOADING component
-  - 🔳 Home: [], getLists, toggleFavorite
-  - 🔳 Home: [], getGame, toggleFavorite
-- 🔳 404 page
+- ✅ LOADING component
+  - ✅ Home
+  - ✅ Game
+  - 🔳 Admin
+- ✅ 404 - NOT FOUND
+  - ✅ Home
+  - ✅ Game
+  - 🔳 Admin
 
 ---
 
-- ✅
+- ✅ Game: - extract GameCard component
 
 ---
 
