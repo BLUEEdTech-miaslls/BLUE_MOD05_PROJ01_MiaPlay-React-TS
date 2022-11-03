@@ -1,36 +1,29 @@
-# MiaPlay
+# 🎮 **MiaPlay**
 
-- layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/miaslls/MiaPlay-React-TS)
-  - to view development process, access [MiaPlay-React-TS/commits/main](https://github.com/miaslls/MiaPlay-React-TS/commits/main)
+## 🔗 [miaplay-01.vercel.app](http://miaplay-01.vercel.app)
+
+---
 
 ---
 
+## **ROUTES:**
+
+- HOME - /
+- GAME - /game/:id
+- ADMIN - /admin
+- LOGIN - /login
+
 ---
+
+layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/miaslls/MiaPlay-React-TS)
+
+- to view development process, access [MiaPlay-React-TS/commits/main](https://github.com/miaslls/MiaPlay-React-TS/commits/main)
 
 &ensp;
 
 &ensp;
 
 &ensp;
-
----
-
----
-
-## **TODO:**
-
-- ✅ LOADING component
-  - ✅ Home
-  - ✅ Game
-  - 🔳 Admin
-- ✅ 404 - NOT FOUND
-  - ✅ Home
-  - ✅ Game
-  - 🔳 Admin
-
----
-
-- ✅ Game: - extract GameCard component
 
 ---
 
@@ -54,6 +47,25 @@ Frontend ReactTS
   - ✅ Criar a sessão de jogos favoritos (1 ponto);
   - ✅ Criar a sessão de jogos classificados por gênero (1 ponto);
 - 🔳 Criar a página de CRUD de jogos e gêneros (1 ponto).
+
+---
+
+---
+
+## **TODO:**
+
+- ✅ LOADING component
+  - ✅ Home
+  - ✅ Game
+  - 🔳 Admin
+- ✅ 404 - NOT FOUND
+  - ✅ Home
+  - ✅ Game
+  - 🔳 Admin
+
+---
+
+- ✅ Game: - extract GameCard component
 
 ---
 
