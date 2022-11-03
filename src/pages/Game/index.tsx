@@ -1,17 +1,50 @@
 import "./Game.css";
 
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-import { useNavigate } from "react-router-dom";
 import { RoutePath } from "../../types/routes";
 import { navigationItems } from "../../data/navigation";
 
-import gameCardImg from "../../mocks/img/the-sims-4.png";
+import GameService from "../../services/GameService";
+import { Game as IGame, GameUpdateFavorite } from "../../types/api/game";
 
 const Game = () => {
   const navigate = useNavigate();
   const handleNavigation = (path: RoutePath) => navigate(path);
+
+  // 📌 getGame
+
+  const [game, setGame] = useState<IGame | undefined>();
+
+  const { gameId } = useParams();
+
+  const getGameById = async (id: string) => {
+    const response = await GameService.getById(id);
+    setGame(response);
+  };
+
+  useEffect(() => {
+    gameId ? getGameById(gameId) : false; // TODO: navigate to 404
+  }, []);
+
+  // 📌 toggleFavorite
+
+  // TODO: LOADING + 404
+
+  const toggleFavorite = async (id: string, favorite: boolean) => {
+    if (gameId) {
+      const body: GameUpdateFavorite = { favorite: favorite ? false : true };
+      const response: IGame = await GameService.update(id, body);
+
+      getGameById(gameId);
+    }
+  };
+
+  // 📌📌📌🚨 GAME return
 
   return (
     <>
@@ -26,46 +59,46 @@ const Game = () => {
           <main className="game-card">
             <div
               className="game-card-img"
-              style={{ backgroundImage: `url(${gameCardImg})` }}
+              style={{ backgroundImage: `url(${game?.cover_imgUrl})` }}
             ></div>
 
             <div className="game-card-info">
               <div className="game-card-info-header">
-                <h2 className="game-card-title">The Sims 4</h2>
+                <div className="game-card-title-wrapper">
+                  <h2 className="game-card-title">{game?.title}</h2>
+                  <div
+                    className="game-card-favorite-icon clickable"
+                    onClick={() =>
+                      toggleFavorite(gameId || "", game?.favorite || false)
+                    }
+                  >
+                    {game?.favorite ? (
+                      <i className="bi bi-heart-fill"></i>
+                    ) : (
+                      <i className="bi bi-heart"></i>
+                    )}
+                  </div>
+                </div>
                 <div className="game-card-subtitle">
                   <div className="game-card-subtitle-wrapper">
-                    <div className="game-card-year">2014</div>
+                    <div className="game-card-year">{game?.year}</div>
                     <div className="game-card-genres">
-                      simulation, fantasy, blablibla
+                      {game?.genres.map((genre) => genre.name).join(", ")}
                     </div>
                   </div>
                   <div className="game-card-rating">
                     <div className="game-card-rating-icon">
                       <i className="bi bi-star"></i>
                     </div>
-                    <div className="game-card-rating-text">6.8/10</div>
+                    <div className="game-card-rating-text">
+                      {game?.imdbScore}/10
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="game-card-info-mid-container">
-                <div className="game-card-description">
-                  Unleash your imagination and create a unique world of Sims
-                  that's an expression of you! Explore and customize every
-                  detail from Sims to homes, and much more.
-                </div>
-              </div>
-
-              <div className="game-card-info-bottom-container">
-                <div className="game-card-option-icon clickable">
-                  <i className="bi bi-pencil"></i>
-                </div>
-                <div className="game-card-option-icon clickable">
-                  <i className="bi bi-trash3"></i>
-                </div>
-                <div className="game-card-option-icon clickable">
-                  <i className="bi bi-heart"></i>
-                </div>
+                <div className="game-card-description">{game?.description}</div>
               </div>
             </div>
 
@@ -74,6 +107,10 @@ const Game = () => {
                 <div className="game-card-video-arrow clickable">
                   <i className="bi bi-chevron-double-left"></i>
                 </div>
+
+                {/* TODO: format youtube links */}
+                {/* TODO: toggle video */}
+
                 <iframe
                   src="https://www.youtube.com/embed/GJENRAB4ykA"
                   title="YouTube video player"

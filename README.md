@@ -20,6 +20,9 @@
 ## **TODO:**
 
 - 🔳 LOADING component
+  - 🔳 Home: [], getLists, toggleFavorite
+  - 🔳 Home: [], getGame, toggleFavorite
+- 🔳 404 page
 
 ---
 

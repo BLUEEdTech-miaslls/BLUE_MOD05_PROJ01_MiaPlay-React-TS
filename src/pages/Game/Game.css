@@ -18,6 +18,14 @@
   gap: 1rem;
 }
 
+.game-card-title-wrapper {
+  display: flex;
+}
+
+.game-card-favorite-icon {
+  font-size: larger;
+}
+
 .game-card-title {
   width: 100%;
   white-space: nowrap;
@@ -34,11 +42,12 @@
 
 .game-card-subtitle-wrapper {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   gap: 1rem;
 }
 
 .game-card-year {
+  width: fit-content;
   font-size: x-large;
 }
 
@@ -103,12 +112,12 @@
     width: 100%;
   }
 
-  .game-card-video-outer-container {
-    margin-top: 2rem;
+  .game-card-subtitle-wrapper {
+    align-items: center;
   }
 
-  .game-card-option-icon {
-    font-size: larger;
+  .game-card-video-outer-container {
+    margin-top: 2rem;
   }
 
   .game-card-video-inner-container {

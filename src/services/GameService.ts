@@ -7,7 +7,7 @@ const GameService = {
       method: "GET",
     }).then((response: Response) => response.json()),
 
-  getById: (id: string): Promise<Game[]> =>
+  getById: (id: string): Promise<Game> =>
     fetch(endpoints.gameById(id), {
       method: "GET",
     }).then((response: Response) => response.json()),

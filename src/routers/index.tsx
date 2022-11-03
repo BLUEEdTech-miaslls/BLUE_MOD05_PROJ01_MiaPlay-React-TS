@@ -11,7 +11,7 @@ const Router = () => {
       <Route path={RoutePath.HOME} element={<Home />} />
       <Route path={RoutePath.LOGIN} element={<Login />} />
       <Route path={RoutePath.ADMIN} element={<Admin />} />
-      <Route path={RoutePath.GAME + "/:id"} element={<Game />} />
+      <Route path={RoutePath.GAME + "/:gameId"} element={<Game />} />
     </Routes>
   );
 };
