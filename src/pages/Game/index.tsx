@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Loading from "../../components/Loading";
 
 import { RoutePath } from "../../types/routes";
 import { navigationItems } from "../../data/navigation";
@@ -13,6 +15,8 @@ const Game = () => {
   const handleNavigation = (path: RoutePath) => navigate(path);
 
   const { gameId } = useParams();
+
+  const [showLoading, setShowLoading] = useState<boolean>(true);
 
   // 📌📌📌🚨 GAME return
 
@@ -26,7 +30,15 @@ const Game = () => {
             handleNavigation={handleNavigation}
           />
 
-          <GameCard gameId={gameId || ""} />
+          {/* {!showLoading && ( */}
+          <GameCard
+            gameId={gameId || ""}
+            showLoading={showLoading}
+            setShowLoading={setShowLoading}
+          />
+          {/* )} */}
+
+          {showLoading && <Loading />}
         </div>
 
         <div className="wrapper">
