@@ -19,7 +19,7 @@
 
 ## **TODO:**
 
-- 🔳 **API:** return RESPONSE on remove requests
+- 🔳 LOADING component
 
 ---
 
@@ -43,9 +43,9 @@ Frontend ReactTS
 - ✅ Criar a página de Login (1 ponto); ✔
 - 🔳 Implementar a página Homepage:
   - 🔳 Criar o card de cada jogo (1 ponto);
-- 🔳 Implementar o componente Lista de Jogos com:
-  - 🔳 Criar a sessão de jogos favoritos (1 ponto);
-  - 🔳 Criar a sessão de jogos classificados por gênero (1 ponto);
+- ✅ Implementar o componente Lista de Jogos com:
+  - ✅ Criar a sessão de jogos favoritos (1 ponto);
+  - ✅ Criar a sessão de jogos classificados por gênero (1 ponto);
 - 🔳 Criar a página de CRUD de jogos e gêneros (1 ponto).
 
 ---

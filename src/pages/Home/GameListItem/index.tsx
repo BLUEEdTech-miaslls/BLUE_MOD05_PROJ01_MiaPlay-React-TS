@@ -1,5 +1,8 @@
 import "./GameListItem.css";
 
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "../../../types/routes";
+
 import { GameListItemProps } from "./types";
 
 const GameListItem = ({
@@ -11,6 +14,8 @@ const GameListItem = ({
   favorite,
   toggleFavorite,
 }: GameListItemProps) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <li className="game-list-item-container">
@@ -33,15 +38,24 @@ const GameListItem = ({
               <div className="game-rating-text">{rating}</div>
             </div>
 
-            <div
-              className="game-favorite clickable"
-              onClick={() => toggleFavorite(id, favorite)}
-            >
-              {favorite ? (
-                <i className="bi bi-heart-fill"></i>
-              ) : (
-                <i className="bi bi-heart"></i>
-              )}
+            <div className="game-info-icons">
+              <div
+                className="game-info-icon clickable"
+                onClick={() => navigate(`${RoutePath.GAME}/${id}`)}
+              >
+                <i className="bi bi-info-circle"></i>
+              </div>
+
+              <div
+                className="game-info-icon clickable"
+                onClick={() => toggleFavorite(id, favorite)}
+              >
+                {favorite ? (
+                  <i className="bi bi-heart-fill"></i>
+                ) : (
+                  <i className="bi bi-heart"></i>
+                )}
+              </div>
             </div>
           </div>
         </div>
