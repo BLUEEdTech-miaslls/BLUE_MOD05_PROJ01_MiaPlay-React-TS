@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Loading from "../../components/Loading";
 
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "../../routers/routes";
@@ -76,17 +77,21 @@ const Admin = () => {
           />
 
           <main className="admin-page-container">
-            <AdminGameList games={games} />
+            {!showLoading && <AdminGameList games={games} />}
 
             <aside>
-              <AdminGenreList genres={genres} />
+              {!showLoading && <AdminGenreList genres={genres} />}
 
-              <section className="admin-section admin-users-container">
-                <h2>users</h2>
-                <p>(placeholder)</p>
-              </section>
+              {!showLoading && (
+                <section className="admin-section admin-users-container">
+                  <h2>users</h2>
+                  <p>(placeholder)</p>
+                </section>
+              )}
             </aside>
           </main>
+
+          {showLoading && <Loading />}
         </div>
         <Footer
           active={RoutePath.ADMIN}
