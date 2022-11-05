@@ -26,9 +26,7 @@ const Home = () => {
   // 📌 getGameLists
 
   const [showEmptyNotice, setShowEmptyNotice] = useState<boolean>(false);
-  const [genreGameLists, setGenreGameLists] = useState<
-    GenreGameList[] | undefined
-  >([]);
+  const [genreGameLists, setGenreGameLists] = useState<GenreGameList[]>([]);
 
   const getGameLists = async () => {
     setShowLoading(true);
