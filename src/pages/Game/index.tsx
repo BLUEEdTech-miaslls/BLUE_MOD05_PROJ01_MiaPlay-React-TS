@@ -30,13 +30,11 @@ const Game = () => {
             handleNavigation={handleNavigation}
           />
 
-          {/* {!showLoading && ( */}
           <GameCard
             gameId={gameId || ""}
             showLoading={showLoading}
             setShowLoading={setShowLoading}
           />
-          {/* )} */}
 
           {showLoading && <Loading />}
         </div>
