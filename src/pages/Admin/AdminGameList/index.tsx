@@ -1,9 +1,13 @@
 import "./AdminGameList.css";
 
+import { useState } from "react";
+
 import { AdminGameListProps } from "../AdminGameList/types";
 import AdminGameListItem from "../AdminGameListItem";
 
 const AdminGameList = ({ games }: AdminGameListProps) => {
+  const [gameIconMode, setGameIconMode] = useState<"edit" | "delete">("delete");
+
   return (
     <>
       <section className="admin-section admin-games-container">
@@ -12,9 +16,23 @@ const AdminGameList = ({ games }: AdminGameListProps) => {
             <h2>games</h2>
 
             <div className="admin-header-icon-wrapper">
-              <div className="admin-header-icon clickable">
-                <i className="bi bi-pencil"></i>
-              </div>
+              {gameIconMode === "delete" && (
+                <div
+                  className="admin-header-icon clickable"
+                  onClick={() => setGameIconMode("edit")}
+                >
+                  <i className="bi bi-pencil"></i>
+                </div>
+              )}
+
+              {gameIconMode === "edit" && (
+                <div
+                  className="admin-header-icon clickable"
+                  onClick={() => setGameIconMode("delete")}
+                >
+                  <i className="bi bi-x-lg"></i>
+                </div>
+              )}
 
               <div className="admin-header-icon clickable">
                 <i className="bi bi-plus-circle"></i>
@@ -25,7 +43,11 @@ const AdminGameList = ({ games }: AdminGameListProps) => {
 
         <ul className="admin-game-list">
           {games.map((game, index) => (
-            <AdminGameListItem key={`admin-game-${index}`} game={game} />
+            <AdminGameListItem
+              key={`admin-game-${index}`}
+              game={game}
+              gameIconMode={gameIconMode}
+            />
           ))}
         </ul>
       </section>

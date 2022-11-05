@@ -2,7 +2,7 @@ import "./AdminGameListItem.css";
 
 import { AdminGameListItemProps } from "./types";
 
-const AdminGameListItem = ({ game }: AdminGameListItemProps) => {
+const AdminGameListItem = ({ game, gameIconMode }: AdminGameListItemProps) => {
   return (
     <>
       <li className="admin-game-list-item">
@@ -27,9 +27,17 @@ const AdminGameListItem = ({ game }: AdminGameListItemProps) => {
           </div>
           <div className="admin-game-rating-text">{game.imdbScore}</div>
         </div>
-        <div className="admin-game-options-icon clickable">
-          <i className="bi bi-x"></i>
-        </div>
+        {gameIconMode === "delete" && (
+          <div className="admin-game-options-icon clickable">
+            <i className="bi bi-x-lg"></i>
+          </div>
+        )}
+
+        {gameIconMode === "edit" && (
+          <div className="admin-game-options-icon clickable">
+            <i className="bi bi-pencil"></i>
+          </div>
+        )}
       </li>
     </>
   );
