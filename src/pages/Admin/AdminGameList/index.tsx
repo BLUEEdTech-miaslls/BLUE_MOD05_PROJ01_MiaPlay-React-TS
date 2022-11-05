@@ -5,7 +5,7 @@ import { useState } from "react";
 import { AdminGameListProps } from "../AdminGameList/types";
 import AdminGameListItem from "../AdminGameListItem";
 
-const AdminGameList = ({ games }: AdminGameListProps) => {
+const AdminGameList = ({ games, showEmptyGames }: AdminGameListProps) => {
   const [gameIconMode, setGameIconMode] = useState<"edit" | "delete">("delete");
 
   return (
@@ -49,6 +49,8 @@ const AdminGameList = ({ games }: AdminGameListProps) => {
               gameIconMode={gameIconMode}
             />
           ))}
+
+          {showEmptyGames && <li>GAME LIST EMPTY</li>}
         </ul>
       </section>
     </>

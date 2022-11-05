@@ -4,7 +4,7 @@ import { AdminGenreListProps } from "./types";
 import AdminGenreListItem from "../AdminGenreListItem";
 import { useState } from "react";
 
-const AdminGenreList = ({ genres }: AdminGenreListProps) => {
+const AdminGenreList = ({ genres, showEmptyGenres }: AdminGenreListProps) => {
   const [genreIconMode, setGenreIconMode] = useState<"edit" | "delete">(
     "delete"
   );
@@ -42,7 +42,7 @@ const AdminGenreList = ({ genres }: AdminGenreListProps) => {
           </div>
         </div>
 
-        <div className="admin-genre-list">
+        <ul className="admin-genre-list">
           {genres.map((genre, index) => (
             <AdminGenreListItem
               key={`admin-genre-${index}`}
@@ -50,7 +50,9 @@ const AdminGenreList = ({ genres }: AdminGenreListProps) => {
               genreIconMode={genreIconMode}
             />
           ))}
-        </div>
+
+          {showEmptyGenres && <li>GENRE LIST EMPTY</li>}
+        </ul>
       </section>
     </>
   );

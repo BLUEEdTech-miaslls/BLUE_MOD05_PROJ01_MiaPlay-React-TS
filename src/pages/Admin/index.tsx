@@ -23,6 +23,8 @@ const Admin = () => {
   const handleNavigation = (path: RoutePath) => navigate(path);
 
   const [showLoading, setShowLoading] = useState<boolean>(true);
+  const [showEmptyGames, setShowEmptyGames] = useState<boolean>(false);
+  const [showEmptyGenres, setShowEmptyGenres] = useState<boolean>(false);
 
   // 📌 GAMES
 
@@ -33,9 +35,11 @@ const Admin = () => {
 
     const response = await GameService.getAll();
 
-    response.sort((a, b) =>
-      a.title > b.title ? 1 : b.title > a.title ? -1 : 0
-    );
+    response.length > 0
+      ? response.sort((a, b) =>
+          a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+        )
+      : setShowEmptyGames(true);
 
     setGames(response);
     setShowLoading(false);
@@ -54,7 +58,11 @@ const Admin = () => {
 
     const response = await GenreService.getAll();
 
-    response.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    response.length > 0
+      ? response.sort((a, b) =>
+          a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+        )
+      : setShowEmptyGenres(true);
 
     setGenres(response);
     setShowLoading(false);
@@ -77,10 +85,17 @@ const Admin = () => {
           />
 
           <main className="admin-page-container">
-            {!showLoading && <AdminGameList games={games} />}
+            {!showLoading && (
+              <AdminGameList games={games} showEmptyGames={showEmptyGames} />
+            )}
 
             <aside>
-              {!showLoading && <AdminGenreList genres={genres} />}
+              {!showLoading && (
+                <AdminGenreList
+                  genres={genres}
+                  showEmptyGenres={showEmptyGenres}
+                />
+              )}
 
               {!showLoading && (
                 <section className="admin-section admin-users-container">
