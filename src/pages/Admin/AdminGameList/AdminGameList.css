@@ -1,0 +1,9 @@
+.admin-games-container {
+  flex: 5;
+}
+.admin-game-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
