@@ -12,7 +12,7 @@ const AdminGenreListItem = ({
         <div className="admin-genre-name">{genre.name}</div>
         {genreIconMode === "delete" && (
           <div className="admin-game-options-icon clickable">
-            <i className="bi bi-x-lg"></i>
+            <i className="bi bi-x"></i>
           </div>
         )}
 

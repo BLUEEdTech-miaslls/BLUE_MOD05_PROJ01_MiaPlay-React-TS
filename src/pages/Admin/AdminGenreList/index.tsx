@@ -4,7 +4,11 @@ import { AdminGenreListProps } from "./types";
 import AdminGenreListItem from "../AdminGenreListItem";
 import { useState } from "react";
 
-const AdminGenreList = ({ genres, showEmptyGenres }: AdminGenreListProps) => {
+const AdminGenreList = ({
+  genres,
+  showEmptyGenres,
+  setShowGenreForm,
+}: AdminGenreListProps) => {
   const [genreIconMode, setGenreIconMode] = useState<"edit" | "delete">(
     "delete"
   );
@@ -35,7 +39,10 @@ const AdminGenreList = ({ genres, showEmptyGenres }: AdminGenreListProps) => {
                 </div>
               )}
 
-              <div className="admin-header-icon clickable">
+              <div
+                className="admin-header-icon clickable"
+                onClick={() => setShowGenreForm(true)}
+              >
                 <i className="bi bi-plus-circle"></i>
               </div>
             </div>

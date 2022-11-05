@@ -18,13 +18,18 @@ import { Genre } from "../../api/types/genre";
 import GenreService from "../../api/services/GenreService";
 import AdminGenreList from "./AdminGenreList";
 
+import GenreForm from "./GenreForm";
+
 const Admin = () => {
   const navigate = useNavigate();
   const handleNavigation = (path: RoutePath) => navigate(path);
 
   const [showLoading, setShowLoading] = useState<boolean>(true);
+
   const [showEmptyGames, setShowEmptyGames] = useState<boolean>(false);
   const [showEmptyGenres, setShowEmptyGenres] = useState<boolean>(false);
+
+  const [showGenreForm, setShowGenreForm] = useState<boolean>(false);
 
   // 📌 GAMES
 
@@ -84,27 +89,28 @@ const Admin = () => {
             handleNavigation={handleNavigation}
           />
 
-          <main className="admin-page-container">
-            {!showLoading && (
+          {!showLoading && (
+            <main className="admin-page-container">
               <AdminGameList games={games} showEmptyGames={showEmptyGames} />
-            )}
 
-            <aside>
-              {!showLoading && (
-                <AdminGenreList
-                  genres={genres}
-                  showEmptyGenres={showEmptyGenres}
-                />
-              )}
+              <aside>
+                {showGenreForm ? (
+                  <GenreForm setShowGenreForm={setShowGenreForm} />
+                ) : (
+                  <AdminGenreList
+                    genres={genres}
+                    showEmptyGenres={showEmptyGenres}
+                    setShowGenreForm={setShowGenreForm}
+                  />
+                )}
 
-              {!showLoading && (
                 <section className="admin-section admin-users-container">
                   <h2>users</h2>
                   <p>(placeholder)</p>
                 </section>
-              )}
-            </aside>
-          </main>
+              </aside>
+            </main>
+          )}
 
           {showLoading && <Loading />}
         </div>
