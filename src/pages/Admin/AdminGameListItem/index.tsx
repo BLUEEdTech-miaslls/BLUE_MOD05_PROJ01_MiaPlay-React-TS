@@ -1,8 +1,13 @@
 import "./AdminGameListItem.css";
 
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "../../../routers/routes";
+
 import { AdminGameListItemProps } from "./types";
 
 const AdminGameListItem = ({ game, gameIconMode }: AdminGameListItemProps) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <li className="admin-game-list-item">
@@ -13,7 +18,10 @@ const AdminGameListItem = ({ game, gameIconMode }: AdminGameListItemProps) => {
 
         <div className="admin-game-column admin-game-year">{game.year}</div>
 
-        <div className="admin-game-column admin-game-name clickable">
+        <div
+          className="admin-game-column admin-game-name clickable"
+          onClick={() => navigate(`${RoutePath.GAME}/${game._id}`)}
+        >
           {game.title}
         </div>
 
