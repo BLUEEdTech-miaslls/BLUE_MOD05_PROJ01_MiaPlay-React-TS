@@ -37,7 +37,7 @@ const AdminGameListItem = ({ game, gameIconMode }: AdminGameListItemProps) => {
         </div>
         {gameIconMode === "delete" && (
           <div className="admin-game-options-icon clickable">
-            <i className="bi bi-x-lg"></i>
+            <i className="bi bi-x"></i>
           </div>
         )}
 
