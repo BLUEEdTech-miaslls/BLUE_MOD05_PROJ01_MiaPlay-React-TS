@@ -5,7 +5,11 @@ import { useState } from "react";
 import { AdminGameListProps } from "../AdminGameList/types";
 import AdminGameListItem from "../AdminGameListItem";
 
-const AdminGameList = ({ games, showEmptyGames }: AdminGameListProps) => {
+const AdminGameList = ({
+  games,
+  showEmptyGames,
+  setShowGameForm,
+}: AdminGameListProps) => {
   const [gameIconMode, setGameIconMode] = useState<"edit" | "delete">("delete");
 
   return (
@@ -34,7 +38,10 @@ const AdminGameList = ({ games, showEmptyGames }: AdminGameListProps) => {
                 </div>
               )}
 
-              <div className="admin-header-icon clickable">
+              <div
+                className="admin-header-icon clickable"
+                onClick={() => setShowGameForm(true)}
+              >
                 <i className="bi bi-plus-circle"></i>
               </div>
             </div>

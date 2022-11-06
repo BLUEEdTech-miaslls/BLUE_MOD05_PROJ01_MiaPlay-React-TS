@@ -52,7 +52,7 @@
     flex-direction: column;
   }
 
-  .admin-games-filters-wrapper {
-    justify-content: space-between;
+  .admin-users-container {
+    display: none;
   }
 }

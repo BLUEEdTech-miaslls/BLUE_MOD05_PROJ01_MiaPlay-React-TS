@@ -18,6 +18,7 @@ import { Genre } from "../../api/types/genre";
 import GenreService from "../../api/services/GenreService";
 import AdminGenreList from "./AdminGenreList";
 
+import GameForm from "./GameForm";
 import GenreForm from "./GenreForm";
 
 const Admin = () => {
@@ -29,6 +30,7 @@ const Admin = () => {
   const [showEmptyGames, setShowEmptyGames] = useState<boolean>(false);
   const [showEmptyGenres, setShowEmptyGenres] = useState<boolean>(false);
 
+  const [showGameForm, setShowGameForm] = useState<boolean>(false);
   const [showGenreForm, setShowGenreForm] = useState<boolean>(false);
 
   // 📌 GAMES
@@ -91,7 +93,15 @@ const Admin = () => {
 
           {!showLoading && (
             <main className="admin-page-container">
-              <AdminGameList games={games} showEmptyGames={showEmptyGames} />
+              {showGameForm ? (
+                <GameForm setShowGameForm={setShowGameForm} genres={genres} />
+              ) : (
+                <AdminGameList
+                  games={games}
+                  showEmptyGames={showEmptyGames}
+                  setShowGameForm={setShowGameForm}
+                />
+              )}
 
               <aside>
                 {showGenreForm ? (
@@ -106,7 +116,7 @@ const Admin = () => {
 
                 <section className="admin-section admin-users-container">
                   <h2>users</h2>
-                  <p>(placeholder)</p>
+                  <p>(layout placeholder)</p>
                 </section>
               </aside>
             </main>
