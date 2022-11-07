@@ -4,8 +4,6 @@
 
 ---
 
----
-
 ## **ROUTES:**
 
 - HOME - /
@@ -19,11 +17,13 @@ layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/mi
 
 - to view development process, access [MiaPlay-React-TS/commits/main](https://github.com/miaslls/MiaPlay-React-TS/commits/main)
 
-&ensp;
+---
 
-&ensp;
+## **API**
 
-&ensp;
+### 🔗 [miaplay-api-01.onrender.com](http://miaplay-api-01.onrender.com/)
+
+### 👩‍💻 [github.com/BLUEEdTech-miaslls/BLUE_MOD05_PROJ01_MiaPlay-API](https://github.com/BLUEEdTech-miaslls/BLUE_MOD05_PROJ01_MiaPlay-API)
 
 ---
 
@@ -47,8 +47,6 @@ Frontend ReactTS
   - ✅ Criar a sessão de jogos favoritos (1 ponto);
   - ✅ Criar a sessão de jogos classificados por gênero (1 ponto);
 - ✅ Criar a página de CRUD de jogos e gêneros (1 ponto).
-
----
 
 ---
 
