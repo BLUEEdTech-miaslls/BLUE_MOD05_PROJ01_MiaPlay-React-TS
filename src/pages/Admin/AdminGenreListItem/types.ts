@@ -6,6 +6,6 @@ export interface AdminGenreListItemProps {
   genreIconMode: "edit" | "delete";
   setShowLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setGenreFormState: React.Dispatch<React.SetStateAction<GenreForm>>;
-  setShowGenreForm: React.Dispatch<React.SetStateAction<boolean>>;
   getAllGenres(): Promise<void>;
+  openGenreForm(): void;
 }

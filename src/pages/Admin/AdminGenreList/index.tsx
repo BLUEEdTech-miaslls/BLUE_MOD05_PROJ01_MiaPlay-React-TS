@@ -8,9 +8,9 @@ const AdminGenreList = ({
   genres,
   showEmptyGenres,
   setShowLoading,
-  setShowGenreForm,
   setGenreFormState,
   getAllGenres,
+  openGenreForm,
 }: AdminGenreListProps) => {
   const [genreIconMode, setGenreIconMode] = useState<"edit" | "delete">(
     "delete"
@@ -44,7 +44,7 @@ const AdminGenreList = ({
 
               <div
                 className="admin-header-icon clickable"
-                onClick={() => setShowGenreForm(true)}
+                onClick={() => openGenreForm()}
               >
                 <i className="bi bi-plus-circle"></i>
               </div>
@@ -60,8 +60,8 @@ const AdminGenreList = ({
               genreIconMode={genreIconMode}
               setShowLoading={setShowLoading}
               setGenreFormState={setGenreFormState}
-              setShowGenreForm={setShowGenreForm}
               getAllGenres={getAllGenres}
+              openGenreForm={openGenreForm}
             />
           ))}
 

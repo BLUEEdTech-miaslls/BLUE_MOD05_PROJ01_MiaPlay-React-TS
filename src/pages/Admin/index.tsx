@@ -70,6 +70,11 @@ const Admin = () => {
   const [showGameForm, setShowGameForm] = useState<boolean>(false);
   const [gameFormState, setGameFormSate] = useState<IGameForm>(emptyGame);
 
+  const openGameForm = () => {
+    setShowGameForm(true);
+    setShowGenreForm(false);
+  };
+
   const closeGameForm = () => {
     setShowGameForm(false);
     setGameFormSate(emptyGame);
@@ -108,6 +113,11 @@ const Admin = () => {
   const [showGenreForm, setShowGenreForm] = useState<boolean>(false);
   const [genreFormState, setGenreFormState] = useState<IGenreForm>(emptyGenre);
 
+  const openGenreForm = () => {
+    setShowGenreForm(true);
+    setShowGameForm(false);
+  };
+
   const closeGenreForm = () => {
     setShowGenreForm(false);
     setGenreFormState(emptyGenre);
@@ -141,9 +151,9 @@ const Admin = () => {
                   games={games}
                   showEmptyGames={showEmptyGames}
                   setShowLoading={setShowLoading}
-                  setShowGameForm={setShowGameForm}
                   setGameFormState={setGameFormSate}
                   getAllGames={getAllGames}
+                  openGameForm={openGameForm}
                 />
               )}
 
@@ -161,9 +171,9 @@ const Admin = () => {
                     genres={genres}
                     showEmptyGenres={showEmptyGenres}
                     setShowLoading={setShowLoading}
-                    setShowGenreForm={setShowGenreForm}
                     setGenreFormState={setGenreFormState}
                     getAllGenres={getAllGenres}
+                    openGenreForm={openGenreForm}
                   />
                 )}
 

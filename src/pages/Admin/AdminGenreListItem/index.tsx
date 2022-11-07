@@ -10,14 +10,14 @@ const AdminGenreListItem = ({
   genreIconMode,
   setShowLoading,
   setGenreFormState,
-  setShowGenreForm,
   getAllGenres,
+  openGenreForm,
 }: AdminGenreListItemProps) => {
   // 📌 handleEdit
 
   const handleEdit = (genre: Genre) => {
     setGenreFormState({ id: genre._id, name: genre.name });
-    setShowGenreForm(true);
+    openGenreForm();
   };
 
   // 📌 handleRemove

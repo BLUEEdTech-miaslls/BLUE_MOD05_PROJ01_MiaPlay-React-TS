@@ -13,8 +13,8 @@ const AdminGameListItem = ({
   gameIconMode,
   setShowLoading,
   setGameFormState,
-  setShowGameForm,
   getAllGames,
+  openGameForm,
 }: AdminGameListItemProps) => {
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const AdminGameListItem = ({
       ["year"]: game.year.toString(),
       ["imdbScore"]: game.imdbScore.toString(),
     });
-    setShowGameForm(true);
+    openGameForm();
   };
 
   // 📌 handleRemove

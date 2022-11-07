@@ -9,9 +9,9 @@ const AdminGameList = ({
   games,
   showEmptyGames,
   setShowLoading,
-  setShowGameForm,
   setGameFormState,
   getAllGames,
+  openGameForm,
 }: AdminGameListProps) => {
   const [gameIconMode, setGameIconMode] = useState<"edit" | "delete">("delete");
 
@@ -43,7 +43,7 @@ const AdminGameList = ({
 
               <div
                 className="admin-header-icon clickable"
-                onClick={() => setShowGameForm(true)}
+                onClick={() => openGameForm()}
               >
                 <i className="bi bi-plus-circle"></i>
               </div>
@@ -59,8 +59,8 @@ const AdminGameList = ({
               gameIconMode={gameIconMode}
               setShowLoading={setShowLoading}
               setGameFormState={setGameFormState}
-              setShowGameForm={setShowGameForm}
               getAllGames={getAllGames}
+              openGameForm={openGameForm}
             />
           ))}
 
