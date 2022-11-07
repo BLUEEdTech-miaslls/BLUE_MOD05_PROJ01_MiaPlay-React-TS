@@ -46,7 +46,7 @@ Frontend ReactTS
 - ✅ Implementar o componente Lista de Jogos com:
   - ✅ Criar a sessão de jogos favoritos (1 ponto);
   - ✅ Criar a sessão de jogos classificados por gênero (1 ponto);
-- 🔳 Criar a página de CRUD de jogos e gêneros (1 ponto).
+- ✅ Criar a página de CRUD de jogos e gêneros (1 ponto).
 
 ---
 
@@ -54,18 +54,20 @@ Frontend ReactTS
 
 ## **TODO:**
 
+---
+
+- 🔳 close one form when opening another
+- 🔳 form validations
+- 🔳 cannot delete genre (not empty)
+
+- ✅ Game: - extract GameCard component
 - ✅ LOADING component
   - ✅ Home
   - ✅ Game
-  - 🔳 Admin
+  - ✅ Admin
 - ✅ 404 - NOT FOUND
   - ✅ Home
   - ✅ Game
-  - 🔳 Admin
-
----
-
-- ✅ Game: - extract GameCard component
 
 ---
 
