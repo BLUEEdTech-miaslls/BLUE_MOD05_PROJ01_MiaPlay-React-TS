@@ -9,6 +9,8 @@ const AdminGameList = ({
   games,
   showEmptyGames,
   setShowGameForm,
+  setGameFormState,
+  getAllGames,
 }: AdminGameListProps) => {
   const [gameIconMode, setGameIconMode] = useState<"edit" | "delete">("delete");
 
@@ -54,6 +56,9 @@ const AdminGameList = ({
               key={`admin-game-${index}`}
               game={game}
               gameIconMode={gameIconMode}
+              setGameFormState={setGameFormState}
+              setShowGameForm={setShowGameForm}
+              getAllGames={getAllGames}
             />
           ))}
 

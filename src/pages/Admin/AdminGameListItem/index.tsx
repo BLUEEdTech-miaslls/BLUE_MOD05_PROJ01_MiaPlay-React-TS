@@ -5,8 +5,37 @@ import { RoutePath } from "../../../routers/routes";
 
 import { AdminGameListItemProps } from "./types";
 
-const AdminGameListItem = ({ game, gameIconMode }: AdminGameListItemProps) => {
+import GameService from "../../../api/services/GameService";
+import { Game } from "../../../api/types/game";
+
+const AdminGameListItem = ({
+  game,
+  gameIconMode,
+  setGameFormState,
+  setShowGameForm,
+  getAllGames,
+}: AdminGameListItemProps) => {
   const navigate = useNavigate();
+
+  // 📌 handleEdit
+
+  const handleEdit = (game: Game) => {
+    setGameFormState({
+      ...game,
+      ["year"]: game.year.toString(),
+      ["imdbScore"]: game.imdbScore.toString(),
+    });
+    setShowGameForm(true);
+  };
+
+  // 📌 handleRemove
+
+  const handleRemove = async (id: string) => {
+    await GameService.remove(id);
+    getAllGames();
+  };
+
+  // 📌📌📌🚨 return
 
   return (
     <>
@@ -36,13 +65,19 @@ const AdminGameListItem = ({ game, gameIconMode }: AdminGameListItemProps) => {
           <div className="admin-game-rating-text">{game.imdbScore}</div>
         </div>
         {gameIconMode === "delete" && (
-          <div className="admin-game-options-icon clickable">
+          <div
+            className="admin-game-options-icon clickable"
+            onClick={() => handleRemove(game._id)}
+          >
             <i className="bi bi-x"></i>
           </div>
         )}
 
         {gameIconMode === "edit" && (
-          <div className="admin-game-options-icon clickable">
+          <div
+            className="admin-game-options-icon clickable"
+            onClick={() => handleEdit(game)}
+          >
             <i className="bi bi-pencil"></i>
           </div>
         )}

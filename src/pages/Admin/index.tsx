@@ -141,6 +141,8 @@ const Admin = () => {
                   games={games}
                   showEmptyGames={showEmptyGames}
                   setShowGameForm={setShowGameForm}
+                  setGameFormState={setGameFormSate}
+                  getAllGames={getAllGames}
                 />
               )}
 
