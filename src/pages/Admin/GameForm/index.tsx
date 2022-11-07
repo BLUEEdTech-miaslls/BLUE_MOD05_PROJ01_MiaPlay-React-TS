@@ -56,7 +56,11 @@ const GameForm = ({
 
   // 📌 handleKeyPress
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (
+    e:
+      | React.KeyboardEvent<HTMLInputElement>
+      | React.KeyboardEvent<HTMLTextAreaElement>
+  ) => {
     if (e.key === "Enter") {
       e.preventDefault();
       submitGameForm();
@@ -185,6 +189,7 @@ const GameForm = ({
                   autoFocus={true}
                   placeholder="game title"
                   onChange={(e) => handleChange(e, "title")}
+                  onKeyUp={(e) => handleKeyPress(e)}
                 />
 
                 <input
@@ -197,6 +202,7 @@ const GameForm = ({
                     handleChange(e, "cover_imgUrl");
                     handleCoverImg(e);
                   }}
+                  onKeyUp={(e) => handleKeyPress(e)}
                 />
               </div>
             </div>
@@ -237,6 +243,7 @@ const GameForm = ({
               defaultValue={getDescriptionInput()}
               placeholder="description"
               onChange={(e) => handleChange(e, "description")}
+              onKeyUp={(e) => handleKeyPress(e)}
             ></textarea>
 
             <fieldset>
@@ -247,6 +254,7 @@ const GameForm = ({
                 defaultValue={getYearInput()}
                 placeholder="year"
                 onChange={(e) => handleChange(e, "year")}
+                onKeyUp={(e) => handleKeyPress(e)}
               />
 
               <input
@@ -256,6 +264,7 @@ const GameForm = ({
                 defaultValue={getImdbScoreInput()}
                 placeholder="IMDB score"
                 onChange={(e) => handleChange(e, "imdbScore")}
+                onKeyUp={(e) => handleKeyPress(e)}
               />
             </fieldset>
 
@@ -269,6 +278,7 @@ const GameForm = ({
                 handleChange(e, "trailer_youTubeUrl");
                 handleYouTubeUrl(e, "trailer");
               }}
+              onKeyUp={(e) => handleKeyPress(e)}
             />
 
             <input
@@ -281,6 +291,7 @@ const GameForm = ({
                 handleChange(e, "gameplay_youTubeUrl");
                 handleYouTubeUrl(e, "gameplay");
               }}
+              onKeyUp={(e) => handleKeyPress(e)}
             />
 
             {/* 📌 buttons */}
