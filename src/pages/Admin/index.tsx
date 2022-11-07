@@ -130,6 +130,7 @@ const Admin = () => {
                     genres={genres}
                     showEmptyGenres={showEmptyGenres}
                     setShowGenreForm={setShowGenreForm}
+                    setGenreFormState={setGenreFormState}
                   />
                 )}
 
