@@ -23,6 +23,7 @@ const AdminGameListItem = ({
   const handleEdit = (game: Game) => {
     setGameFormState({
       ...game,
+      ["id"]: game._id,
       ["year"]: game.year.toString(),
       ["imdbScore"]: game.imdbScore.toString(),
     });
