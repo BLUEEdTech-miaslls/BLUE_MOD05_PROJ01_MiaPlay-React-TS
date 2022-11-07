@@ -15,9 +15,8 @@ const GenreForm = ({
 }: GenreFormProps) => {
   // 📌 default input values
 
-  const [defaultInputValues, setDefaultInputValues] = useState<IGenreForm>({
-    name: "",
-  });
+  const [defaultInputValues, setDefaultInputValues] =
+    useState<IGenreForm>(emptyGenre);
 
   useEffect(() => {
     setDefaultInputValues({ name: genreFormState.name });
