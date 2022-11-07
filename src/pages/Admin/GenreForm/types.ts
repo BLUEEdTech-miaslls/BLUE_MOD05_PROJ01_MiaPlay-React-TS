@@ -1,3 +1,12 @@
+export interface GenreForm {
+  id?: string;
+  name: string;
+}
+
 export interface GenreFormProps {
-  setShowGenreForm: React.Dispatch<React.SetStateAction<boolean>>;
+  emptyGenre: GenreForm;
+  genreFormState: GenreForm;
+  setGenreFormState: React.Dispatch<React.SetStateAction<GenreForm>>;
+  getAllGenres(): Promise<void>;
+  closeGenreForm(): void;
 }

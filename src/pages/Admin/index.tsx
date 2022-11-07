@@ -18,8 +18,10 @@ import { Genre } from "../../api/types/genre";
 import GenreService from "../../api/services/GenreService";
 import AdminGenreList from "./AdminGenreList";
 
-import GameForm from "./GameForm";
 import GenreForm from "./GenreForm";
+import { GenreForm as IGenreForm } from "./GenreForm/types";
+
+import GameForm from "./GameForm";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -27,15 +29,11 @@ const Admin = () => {
 
   const [showLoading, setShowLoading] = useState<boolean>(true);
 
-  const [showEmptyGames, setShowEmptyGames] = useState<boolean>(false);
-  const [showEmptyGenres, setShowEmptyGenres] = useState<boolean>(false);
-
-  const [showGameForm, setShowGameForm] = useState<boolean>(false);
-  const [showGenreForm, setShowGenreForm] = useState<boolean>(false);
-
-  // 📌 GAMES
+  // 📌📌 GAMES
 
   const [games, setGames] = useState<Game[]>([]);
+  const [showGameForm, setShowGameForm] = useState<boolean>(false);
+  const [showEmptyGames, setShowEmptyGames] = useState<boolean>(false);
 
   const getAllGames = async () => {
     setShowLoading(true);
@@ -56,9 +54,10 @@ const Admin = () => {
     getAllGames();
   }, []);
 
-  // 📌 GENRES
+  // 📌📌 GENRES
 
   const [genres, setGenres] = useState<Genre[]>([]);
+  const [showEmptyGenres, setShowEmptyGenres] = useState<boolean>(false);
 
   const getAllGenres = async () => {
     setShowLoading(true);
@@ -78,6 +77,20 @@ const Admin = () => {
   useEffect(() => {
     getAllGenres();
   }, []);
+
+  // 📌 GENRE form
+
+  const emptyGenre: IGenreForm = {
+    name: "",
+  };
+
+  const [showGenreForm, setShowGenreForm] = useState<boolean>(false);
+  const [genreFormState, setGenreFormState] = useState<IGenreForm>(emptyGenre);
+
+  const closeGenreForm = () => {
+    setShowGenreForm(false);
+    setGenreFormState(emptyGenre);
+  };
 
   // 📌📌📌🚨 ADMIN return
 
@@ -105,7 +118,13 @@ const Admin = () => {
 
               <aside>
                 {showGenreForm ? (
-                  <GenreForm setShowGenreForm={setShowGenreForm} />
+                  <GenreForm
+                    emptyGenre={emptyGenre}
+                    genreFormState={genreFormState}
+                    setGenreFormState={setGenreFormState}
+                    getAllGenres={getAllGenres}
+                    closeGenreForm={closeGenreForm}
+                  />
                 ) : (
                   <AdminGenreList
                     genres={genres}
