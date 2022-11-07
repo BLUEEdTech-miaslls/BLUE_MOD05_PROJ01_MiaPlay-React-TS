@@ -131,6 +131,7 @@ const Admin = () => {
                     showEmptyGenres={showEmptyGenres}
                     setShowGenreForm={setShowGenreForm}
                     setGenreFormState={setGenreFormState}
+                    getAllGenres={getAllGenres}
                   />
                 )}
 

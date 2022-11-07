@@ -9,6 +9,7 @@ const AdminGenreList = ({
   showEmptyGenres,
   setShowGenreForm,
   setGenreFormState,
+  getAllGenres,
 }: AdminGenreListProps) => {
   const [genreIconMode, setGenreIconMode] = useState<"edit" | "delete">(
     "delete"
@@ -58,6 +59,7 @@ const AdminGenreList = ({
               genreIconMode={genreIconMode}
               setGenreFormState={setGenreFormState}
               setShowGenreForm={setShowGenreForm}
+              getAllGenres={getAllGenres}
             />
           ))}
 

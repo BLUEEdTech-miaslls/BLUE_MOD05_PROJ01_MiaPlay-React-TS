@@ -6,4 +6,5 @@ export interface AdminGenreListProps {
   showEmptyGenres: boolean;
   setShowGenreForm: React.Dispatch<React.SetStateAction<boolean>>;
   setGenreFormState: React.Dispatch<React.SetStateAction<GenreForm>>;
+  getAllGenres(): Promise<void>;
 }
