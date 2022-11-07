@@ -73,11 +73,7 @@ const GameForm = ({
   const [selectedGenreIds, setSelectedGenreIds] = useState<string[]>([]);
 
   useEffect(() => {
-    const genreIds: string[] = [];
-
-    gameFormState.genres.forEach((formStateGenre) => {
-      genreIds.push(formStateGenre._id);
-    });
+    const genreIds = gameFormState.genres.map((genre) => genre._id);
 
     setSelectedGenres(gameFormState.genres);
     setSelectedGenreIds(genreIds);
@@ -97,11 +93,7 @@ const GameForm = ({
       (selected) => genre._id !== selected._id
     );
 
-    const idsAfterDeselect: string[] = [];
-
-    afterDeselect.forEach((deselectedGenre) =>
-      idsAfterDeselect.push(deselectedGenre._id)
-    );
+    const idsAfterDeselect = afterDeselect.map((genre) => genre._id);
 
     setSelectedGenres(afterDeselect);
     setSelectedGenreIds(idsAfterDeselect);
@@ -123,8 +115,7 @@ const GameForm = ({
       genres,
     } = gameFormState;
 
-    const genreIdList: string[] = [];
-    genres.forEach((genre) => genreIdList.push(genre._id));
+    const genreIdList = genres.map((genre) => genre._id);
 
     const gameBody: GameBody = {
       title: title,
