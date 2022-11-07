@@ -67,44 +67,45 @@ const GameForm = ({
     }
   };
 
-  // 📌 handleCoverImg
-
-  const [coverImg, setCoverImg] = useState<string>("");
-
-  const handleCoverImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCoverImg(e.target.value);
-  };
-
   // 📌 handleGenreSelect
 
-  const [selectedGenres, setSelectedGenres] = useState<Genre[]>(getGenres());
+  const [selectedGenres, setSelectedGenres] = useState<Genre[]>([]);
+  const [selectedGenreIds, setSelectedGenreIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    const genreIds: string[] = [];
+
+    gameFormState.genres.forEach((formStateGenre) => {
+      genreIds.push(formStateGenre._id);
+    });
+
+    setSelectedGenres(gameFormState.genres);
+    setSelectedGenreIds(genreIds);
+  }, []);
 
   const handleGenreSelect = (genre: Genre) => {
     setSelectedGenres([...selectedGenres, genre]);
-    setGameFormState({ ...gameFormState, ["genres"]: selectedGenres });
+    setSelectedGenreIds([...selectedGenreIds, genre._id]);
+    setGameFormState({
+      ...gameFormState,
+      ["genres"]: [...selectedGenres, genre],
+    });
   };
 
   const handleGenreDeselect = (genre: Genre) => {
     const afterDeselect = selectedGenres.filter(
-      (selected: Genre) => genre !== selected
+      (selected) => genre._id !== selected._id
+    );
+
+    const idsAfterDeselect: string[] = [];
+
+    afterDeselect.forEach((deselectedGenre) =>
+      idsAfterDeselect.push(deselectedGenre._id)
     );
 
     setSelectedGenres(afterDeselect);
+    setSelectedGenreIds(idsAfterDeselect);
     setGameFormState({ ...gameFormState, ["genres"]: afterDeselect });
-  };
-
-  // 📌 handleYouTubeUrl
-
-  const [YTtrailer, setYTtrailer] = useState<string>("");
-  const [YTgameplay, setYTgameplay] = useState<string>("");
-
-  const handleYouTubeUrl = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    video: "trailer" | "gameplay"
-  ) => {
-    video === "trailer"
-      ? setYTtrailer(e.target.value.split("=")[1])
-      : setYTgameplay(e.target.value.split("=")[1]);
   };
 
   // 📌 submitGameForm
@@ -176,9 +177,11 @@ const GameForm = ({
             <div className="game-form-header">
               <div
                 className="game-form-cover-img"
-                style={{ backgroundImage: `url(${coverImg})` }}
+                style={{ backgroundImage: `url(${getCoverImgInput()})` }}
               >
-                {coverImg.length === 0 && <i className="bi bi-controller"></i>}
+                {getCoverImgInput().length === 0 && (
+                  <i className="bi bi-controller"></i>
+                )}
               </div>
               <div className="game-form-header-inputs">
                 <input
@@ -198,10 +201,7 @@ const GameForm = ({
                   required
                   defaultValue={getCoverImgInput()}
                   placeholder="cover image URL"
-                  onChange={(e) => {
-                    handleChange(e, "cover_imgUrl");
-                    handleCoverImg(e);
-                  }}
+                  onChange={(e) => handleChange(e, "cover_imgUrl")}
                   onKeyUp={(e) => handleKeyPress(e)}
                 />
               </div>
@@ -216,7 +216,7 @@ const GameForm = ({
                   className="game-form-genre"
                   key={`game-form-genre-${index}`}
                 >
-                  {selectedGenres.includes(genre) ? (
+                  {selectedGenreIds.includes(genre._id) ? (
                     <div
                       className="game-form-genre-checkbox"
                       onClick={() => handleGenreDeselect(genre)}
@@ -274,10 +274,7 @@ const GameForm = ({
               required
               defaultValue={getTrailerInput()}
               placeholder="trailer YouTube URL"
-              onChange={(e) => {
-                handleChange(e, "trailer_youTubeUrl");
-                handleYouTubeUrl(e, "trailer");
-              }}
+              onChange={(e) => handleChange(e, "trailer_youTubeUrl")}
               onKeyUp={(e) => handleKeyPress(e)}
             />
 
@@ -287,10 +284,7 @@ const GameForm = ({
               required
               defaultValue={getGameplayInput()}
               placeholder="gameplay YouTube URL"
-              onChange={(e) => {
-                handleChange(e, "gameplay_youTubeUrl");
-                handleYouTubeUrl(e, "gameplay");
-              }}
+              onChange={(e) => handleChange(e, "gameplay_youTubeUrl")}
               onKeyUp={(e) => handleKeyPress(e)}
             />
 
@@ -316,11 +310,13 @@ const GameForm = ({
 
           <div className="game-form-right-column">
             <div className="game-form-video">
-              {YTtrailer === "" ? (
+              {getTrailerInput() === "" ? (
                 <i className="bi bi-camera-video"></i>
               ) : (
                 <iframe
-                  src={`https://www.youtube.com/embed/${YTtrailer}`}
+                  src={`https://www.youtube.com/embed/${
+                    getTrailerInput().split("=")[1]
+                  }`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -330,11 +326,13 @@ const GameForm = ({
             </div>
 
             <div className="game-form-video">
-              {YTgameplay === "" ? (
+              {getGameplayInput() === "" ? (
                 <i className="bi bi-camera-video"></i>
               ) : (
                 <iframe
-                  src={`https://www.youtube.com/embed/${YTgameplay}`}
+                  src={`https://www.youtube.com/embed/${
+                    getGameplayInput().split("=")[1]
+                  }`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
