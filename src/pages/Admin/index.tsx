@@ -14,14 +14,15 @@ import { Game } from "../../api/types/game";
 import GameService from "../../api/services/GameService";
 import AdminGameList from "./AdminGameList";
 
+import GameForm from "./GameForm";
+import { GameForm as IGameForm } from "./GameForm/types";
+
 import { Genre } from "../../api/types/genre";
 import GenreService from "../../api/services/GenreService";
 import AdminGenreList from "./AdminGenreList";
 
 import GenreForm from "./GenreForm";
 import { GenreForm as IGenreForm } from "./GenreForm/types";
-
-import GameForm from "./GameForm";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -32,7 +33,6 @@ const Admin = () => {
   // 📌📌 GAMES
 
   const [games, setGames] = useState<Game[]>([]);
-  const [showGameForm, setShowGameForm] = useState<boolean>(false);
   const [showEmptyGames, setShowEmptyGames] = useState<boolean>(false);
 
   const getAllGames = async () => {
@@ -53,6 +53,27 @@ const Admin = () => {
   useEffect(() => {
     getAllGames();
   }, []);
+
+  // 📌 GAME form
+
+  const emptyGame: IGameForm = {
+    title: "",
+    cover_imgUrl: "",
+    year: "",
+    description: "",
+    imdbScore: "",
+    trailer_youTubeUrl: "",
+    gameplay_youTubeUrl: "",
+    genres: [],
+  };
+
+  const [showGameForm, setShowGameForm] = useState<boolean>(false);
+  const [gameFormState, setGameFormSate] = useState<IGameForm>(emptyGame);
+
+  const closeGameForm = () => {
+    setShowGameForm(false);
+    setGameFormSate(emptyGame);
+  };
 
   // 📌📌 GENRES
 
@@ -107,7 +128,14 @@ const Admin = () => {
           {!showLoading && (
             <main className="admin-page-container">
               {showGameForm ? (
-                <GameForm setShowGameForm={setShowGameForm} genres={genres} />
+                <GameForm
+                  genres={genres}
+                  emptyGame={emptyGame}
+                  gameFormState={gameFormState}
+                  setGameFormState={setGameFormSate}
+                  getAllGames={getAllGames}
+                  closeGameForm={closeGameForm}
+                />
               ) : (
                 <AdminGameList
                   games={games}

@@ -8,7 +8,7 @@ export interface GameBody {
   imdbScore: number;
   trailer_youTubeUrl: string;
   gameplay_youTubeUrl: string;
-  genres: Genre[];
+  genres: string[];
 }
 
 export interface GameUpdateFavorite {
