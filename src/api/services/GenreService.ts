@@ -1,38 +1,37 @@
+import { AxiosResponse } from "axios";
+
+import API from ".";
 import { endpoints } from "../endpoints";
 import { Genre, GenreBody } from "../types/genre";
 
 const GenreService = {
   getAll: (): Promise<Genre[]> =>
-    fetch(endpoints.allGenres(), {
-      method: "GET",
-    }).then((response: Response) => response.json()),
+    API.get(endpoints.allGenres()).then(
+      (response: AxiosResponse) => response.data
+    ),
 
   getById: (id: string): Promise<Genre[]> =>
-    fetch(endpoints.genreById(id), {
-      method: "GET",
-    }).then((response: Response) => response.json()),
+    API.get(endpoints.genreById(id)).then(
+      (response: AxiosResponse) => response.data
+    ),
 
   create: (body: GenreBody): Promise<Genre> =>
-    fetch(endpoints.createGenre(), {
-      method: "POST",
-      body: JSON.stringify(body),
+    API.post(endpoints.createGenre(), body, {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response: Response) => response.json()),
+    }).then((response: AxiosResponse) => response.data),
 
   update: (id: string, body: GenreBody): Promise<Genre> =>
-    fetch(endpoints.updateGenre(id), {
-      method: "PATCH",
-      body: JSON.stringify(body),
+    API.patch(endpoints.updateGenre(id), body, {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response: Response) => response.json()),
+    }).then((response: AxiosResponse) => response.data),
 
   remove: (id: string): Promise<boolean> =>
-    fetch(endpoints.removeGenre(id), { method: "DELETE" }).then(
-      (response: Response) => response.ok
+    API.delete(endpoints.removeGenre(id)).then(
+      (response: AxiosResponse) => response.status === 200
     ),
 };
 

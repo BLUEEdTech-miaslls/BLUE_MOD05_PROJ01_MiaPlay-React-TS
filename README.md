@@ -36,7 +36,7 @@ Frontend ReactTS
 ---
 
 - ✅ Estilizar utilizando CSS (1,5 ponto); ✔
-- ❌ Consumir a API (backend) utilizando o Axios (1 ponto); `❗❗❗ OBS: fetch`
+- ✅ Consumir a API (backend) utilizando o Axios (1 ponto);
 - ✅ Estruturar as pastas e melhorar a arquitetura do projeto (0,5 ponto);
 - ✅ Criar a página Homepage (1 ponto); ✔
 - ✅ Criar o componente Lista de Jogos (1 ponto). ✔

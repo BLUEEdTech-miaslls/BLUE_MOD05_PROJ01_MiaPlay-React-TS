@@ -1,7 +1,5 @@
-import { endpoints } from ".";
-
 export const games = {
-  endpoint: () => `${endpoints.baseUrl}/games`,
+  endpoint: () => "/games",
 
   allGames: () => games.endpoint(),
   createGame: () => games.endpoint(),

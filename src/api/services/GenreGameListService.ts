@@ -1,11 +1,14 @@
+import { AxiosResponse } from "axios";
+
+import API from ".";
 import { endpoints } from "../endpoints";
 import { GenreGameList } from "../types/genreGameList";
 
 const GenreGameListService = {
   getAll: (): Promise<GenreGameList[]> =>
-    fetch(endpoints.allGenreGameLists(), {
-      method: "GET",
-    }).then((response: Response) => response.json()),
+    API.get(endpoints.allGenreGameLists()).then(
+      (response: AxiosResponse) => response.data
+    ),
 };
 
 export default GenreGameListService;

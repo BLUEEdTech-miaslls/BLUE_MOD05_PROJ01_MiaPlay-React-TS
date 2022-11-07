@@ -1,7 +1,5 @@
-import { endpoints } from ".";
-
 export const genres = {
-  endpoint: () => `${endpoints.baseUrl}/genres`,
+  endpoint: () => "/genres",
 
   allGenres: () => genres.endpoint(),
   createGenre: () => genres.endpoint(),

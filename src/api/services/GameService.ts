@@ -1,38 +1,37 @@
+import { AxiosResponse } from "axios";
+
+import API from ".";
 import { endpoints } from "../endpoints";
 import { Game, GameBody, GameUpdateFavorite } from "../types/game";
 
 const GameService = {
   getAll: (): Promise<Game[]> =>
-    fetch(endpoints.allGames(), {
-      method: "GET",
-    }).then((response: Response) => response.json()),
+    API.get(endpoints.allGames()).then(
+      (response: AxiosResponse) => response.data
+    ),
 
   getById: (id: string): Promise<Game> =>
-    fetch(endpoints.gameById(id), {
-      method: "GET",
-    }).then((response: Response) => response.json()),
+    API.get(endpoints.gameById(id)).then(
+      (response: AxiosResponse) => response.data
+    ),
 
   create: (body: GameBody): Promise<Game> =>
-    fetch(endpoints.createGame(), {
-      method: "POST",
-      body: JSON.stringify(body),
+    API.post(endpoints.createGame(), body, {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response: Response) => response.json()),
+    }).then((response: AxiosResponse) => response.data),
 
   update: (id: string, body: GameBody | GameUpdateFavorite): Promise<Game> =>
-    fetch(endpoints.updateGame(id), {
-      method: "PATCH",
-      body: JSON.stringify(body),
+    API.patch(endpoints.updateGame(id), body, {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response: Response) => response.json()),
+    }).then((response: AxiosResponse) => response.data),
 
   remove: (id: string): Promise<boolean> =>
-    fetch(endpoints.removeGame(id), { method: "DELETE" }).then(
-      (response: Response) => response.ok
+    API.delete(endpoints.removeGame(id)).then(
+      (response: AxiosResponse) => response.status === 200
     ),
 };
 
