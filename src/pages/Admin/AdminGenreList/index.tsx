@@ -7,6 +7,7 @@ import { useState } from "react";
 const AdminGenreList = ({
   genres,
   showEmptyGenres,
+  setShowLoading,
   setShowGenreForm,
   setGenreFormState,
   getAllGenres,
@@ -57,6 +58,7 @@ const AdminGenreList = ({
               key={`admin-genre-${index}`}
               genre={genre}
               genreIconMode={genreIconMode}
+              setShowLoading={setShowLoading}
               setGenreFormState={setGenreFormState}
               setShowGenreForm={setShowGenreForm}
               getAllGenres={getAllGenres}

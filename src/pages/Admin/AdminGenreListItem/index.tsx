@@ -8,6 +8,7 @@ import GenreService from "../../../api/services/GenreService";
 const AdminGenreListItem = ({
   genre,
   genreIconMode,
+  setShowLoading,
   setGenreFormState,
   setShowGenreForm,
   getAllGenres,
@@ -22,6 +23,7 @@ const AdminGenreListItem = ({
   // 📌 handleRemove
 
   const handleRemove = async (id: string) => {
+    setShowLoading(true);
     await GenreService.remove(id);
     getAllGenres();
   };

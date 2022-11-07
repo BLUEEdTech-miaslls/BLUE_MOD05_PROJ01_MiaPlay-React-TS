@@ -140,6 +140,7 @@ const Admin = () => {
                 <AdminGameList
                   games={games}
                   showEmptyGames={showEmptyGames}
+                  setShowLoading={setShowLoading}
                   setShowGameForm={setShowGameForm}
                   setGameFormState={setGameFormSate}
                   getAllGames={getAllGames}
@@ -159,6 +160,7 @@ const Admin = () => {
                   <AdminGenreList
                     genres={genres}
                     showEmptyGenres={showEmptyGenres}
+                    setShowLoading={setShowLoading}
                     setShowGenreForm={setShowGenreForm}
                     setGenreFormState={setGenreFormState}
                     getAllGenres={getAllGenres}

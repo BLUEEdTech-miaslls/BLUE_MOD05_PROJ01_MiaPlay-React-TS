@@ -11,6 +11,7 @@ import { Game } from "../../../api/types/game";
 const AdminGameListItem = ({
   game,
   gameIconMode,
+  setShowLoading,
   setGameFormState,
   setShowGameForm,
   getAllGames,
@@ -31,6 +32,7 @@ const AdminGameListItem = ({
   // 📌 handleRemove
 
   const handleRemove = async (id: string) => {
+    setShowLoading(true);
     await GameService.remove(id);
     getAllGames();
   };

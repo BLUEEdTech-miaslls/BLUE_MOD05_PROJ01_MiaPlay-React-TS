@@ -8,6 +8,7 @@ import AdminGameListItem from "../AdminGameListItem";
 const AdminGameList = ({
   games,
   showEmptyGames,
+  setShowLoading,
   setShowGameForm,
   setGameFormState,
   getAllGames,
@@ -56,6 +57,7 @@ const AdminGameList = ({
               key={`admin-game-${index}`}
               game={game}
               gameIconMode={gameIconMode}
+              setShowLoading={setShowLoading}
               setGameFormState={setGameFormState}
               setShowGameForm={setShowGameForm}
               getAllGames={getAllGames}
