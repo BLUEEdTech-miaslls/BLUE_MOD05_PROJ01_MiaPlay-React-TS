@@ -27,7 +27,7 @@
   - @types/react-router-dom: 5.3.3,
   - @vitejs/plugin-react: 2.2.0,
   - typescript: 4.6.4,
-  - vite: 3.2."
+  - vite: 3.2.0
 
 ---
 
