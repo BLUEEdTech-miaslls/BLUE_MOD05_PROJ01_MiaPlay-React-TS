@@ -13,9 +13,21 @@
 
 ---
 
-layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/miaslls/MiaPlay-React-TS)
+## **DEPENDENCIES:**
 
-- to view development process, access [MiaPlay-React-TS/commits/main](https://github.com/miaslls/MiaPlay-React-TS/commits/main)
+- axios: 1.1.3,
+- react: 18.2.0,
+- react-dom: 18.2.0,
+- react-router-dom: 6.4.2,
+
+  ## **dev:**
+
+  - @types/react: 18.0.22,
+  - @types/react-dom: 18.0.7,
+  - @types/react-router-dom: 5.3.3,
+  - @vitejs/plugin-react: 2.2.0,
+  - typescript: 4.6.4,
+  - vite: 3.2."
 
 ---
 
@@ -24,6 +36,11 @@ layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/mi
 ### 🔗 [miaplay-api-01.onrender.com](http://miaplay-api-01.onrender.com/)
 
 ### 👩‍💻 [github.com/BLUEEdTech-miaslls/BLUE_MOD05_PROJ01_MiaPlay-API](https://github.com/BLUEEdTech-miaslls/BLUE_MOD05_PROJ01_MiaPlay-API)
+
+---
+
+- layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/miaslls/MiaPlay-React-TS)
+  - to view development process, access [MiaPlay-React-TS/commits/main](https://github.com/miaslls/MiaPlay-React-TS/commits/main)
 
 ---
 
