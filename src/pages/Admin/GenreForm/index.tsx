@@ -44,18 +44,24 @@ const GenreForm = ({
 
   // 📌 submitGenreForm
 
+  const [showGenreFormError, setShowGenreFormError] = useState<boolean>(false);
+
   const submitGenreForm = async () => {
     const { id, name } = genreFormState;
 
-    const genreBody: GenreBody = { name: name };
+    if (name === "") {
+      setShowGenreFormError(true);
+    } else {
+      const genreBody: GenreBody = { name: name };
 
-    id
-      ? await GenreService.update(id, genreBody)
-      : await GenreService.create(genreBody);
+      id
+        ? await GenreService.update(id, genreBody)
+        : await GenreService.create(genreBody);
 
-    setGenreFormState(emptyGenre);
-    closeGenreForm();
-    getAllGenres();
+      setGenreFormState(emptyGenre);
+      closeGenreForm();
+      getAllGenres();
+    }
   };
 
   // 📌📌📌🚨 GenreForm return
@@ -78,24 +84,29 @@ const GenreForm = ({
           </div>
         </div>
         <form className="genre-form" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            name="genre"
-            required
-            defaultValue={getNameInput()}
-            placeholder="genre"
-            autoComplete="off"
-            autoFocus={true}
-            onChange={(e) => handleChange(e, "name")}
-            onKeyUp={(e) => handleKeyPress(e)}
-          />
+          <div className="genre-form-row">
+            <input
+              type="text"
+              name="genre"
+              required
+              defaultValue={getNameInput()}
+              placeholder="genre"
+              autoComplete="off"
+              autoFocus={true}
+              onChange={(e) => handleChange(e, "name")}
+              onKeyUp={(e) => handleKeyPress(e)}
+            />
 
-          <div
-            className="admin-header-icon clickable"
-            onClick={() => submitGenreForm()}
-          >
-            <i className="bi bi-check-circle"></i>
+            <div
+              className="admin-header-icon clickable"
+              onClick={() => submitGenreForm()}
+            >
+              <i className="bi bi-check-circle"></i>
+            </div>
           </div>
+          {showGenreFormError && (
+            <div className="genre-form-error">genre is required</div>
+          )}
         </form>
       </section>
     </>

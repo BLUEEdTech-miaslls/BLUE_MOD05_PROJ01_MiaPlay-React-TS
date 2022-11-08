@@ -1,4 +1,15 @@
 .genre-form {
   display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.genre-form-row {
+  display: flex;
   gap: 1rem;
+}
+
+.genre-form-error {
+  font-size: x-small;
+  color: #009999;
 }
