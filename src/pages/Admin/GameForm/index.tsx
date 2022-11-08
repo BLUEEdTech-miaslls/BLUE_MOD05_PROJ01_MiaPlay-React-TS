@@ -18,6 +18,18 @@ const GameForm = ({
   getAllGames,
   closeGameForm,
 }: GameFormProps) => {
+  // 📌 errorMsgs
+  const [errorMsgs, setErrorMsgs] = useState<ErrorMsgs>({
+    title: "",
+    cover_imgUrl: "",
+    year: "",
+    description: "",
+    imdbScore: "",
+    trailer_youTubeUrl: "",
+    gameplay_youTubeUrl: "",
+    genres: "",
+  });
+
   // 📌 default input values
 
   const [defaultInputValues, setDefaultInputValues] =
@@ -54,6 +66,7 @@ const GameForm = ({
     name: string
   ) => {
     setGameFormState({ ...gameFormState, [name]: e.target.value });
+    setErrorMsgs({ ...errorMsgs, [name]: "" });
   };
 
   // 📌 handleKeyPress
@@ -88,6 +101,7 @@ const GameForm = ({
       ...gameFormState,
       ["genres"]: [...selectedGenres, genre],
     });
+    setErrorMsgs({ ...errorMsgs, ["genres"]: "" });
   };
 
   const handleGenreDeselect = (genre: Genre) => {
@@ -103,17 +117,6 @@ const GameForm = ({
   };
 
   // 📌 submitGameForm
-
-  const [errorMsgs, setErrorMsgs] = useState<ErrorMsgs>({
-    title: "",
-    cover_imgUrl: "",
-    year: "",
-    description: "",
-    imdbScore: "",
-    trailer_youTubeUrl: "",
-    gameplay_youTubeUrl: "",
-    genres: "",
-  });
 
   const submitGameForm = async () => {
     const formValidation = validateGameForm(gameFormState);
@@ -155,8 +158,6 @@ const GameForm = ({
       setErrorMsgs(formValidation.errorMsgs);
     }
   };
-
-  console.log(errorMsgs); // 🐞
 
   // 📌📌📌🚨 GameForm return
 
