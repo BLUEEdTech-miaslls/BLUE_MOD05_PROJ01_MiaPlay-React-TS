@@ -84,6 +84,7 @@ const Admin = () => {
 
   const [genres, setGenres] = useState<Genre[]>([]);
   const [showEmptyGenres, setShowEmptyGenres] = useState<boolean>(false);
+  const [genreErrorMessage, setGenreErrorMessage] = useState<string>("");
 
   const getAllGenres = async () => {
     setShowLoading(true);
@@ -122,10 +123,6 @@ const Admin = () => {
     setShowGenreForm(false);
     setGenreFormState(emptyGenre);
   };
-
-  // 📌 GENRE error
-
-  const [genreErrorMessage, setGenreErrorMessage] = useState<string>("");
 
   // 📌📌📌🚨 ADMIN return
 
