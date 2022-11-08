@@ -13,6 +13,8 @@ const GenreForm = ({
   getAllGenres,
   closeGenreForm,
 }: GenreFormProps) => {
+  const [showGenreFormError, setShowGenreFormError] = useState<boolean>(false);
+
   // 📌 default input values
 
   const [defaultInputValues, setDefaultInputValues] =
@@ -31,6 +33,7 @@ const GenreForm = ({
     name: string
   ) => {
     setGenreFormState({ ...genreFormState, [name]: e.target.value });
+    setShowGenreFormError(false);
   };
 
   // 📌 handleKeyPress
@@ -43,8 +46,6 @@ const GenreForm = ({
   };
 
   // 📌 submitGenreForm
-
-  const [showGenreFormError, setShowGenreFormError] = useState<boolean>(false);
 
   const submitGenreForm = async () => {
     const { id, name } = genreFormState;
