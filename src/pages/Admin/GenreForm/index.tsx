@@ -3,7 +3,7 @@ import "./GenreForm.css";
 import { useState, useEffect } from "react";
 
 import GenreService from "../../../api/services/GenreService";
-import { Genre, GenreBody } from "../../../api/types/genre";
+import { GenreBody } from "../../../api/types/genre";
 import { GenreForm as IGenreForm, GenreFormProps } from "./types";
 
 const GenreForm = ({
