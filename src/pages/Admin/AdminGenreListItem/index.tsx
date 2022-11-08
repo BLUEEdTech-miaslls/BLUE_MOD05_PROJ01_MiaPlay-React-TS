@@ -10,6 +10,7 @@ const AdminGenreListItem = ({
   genreIconMode,
   setShowLoading,
   setGenreFormState,
+  setGenreErrorMessage,
   getAllGenres,
   openGenreForm,
 }: AdminGenreListItemProps) => {
@@ -24,8 +25,19 @@ const AdminGenreListItem = ({
 
   const handleRemove = async (id: string) => {
     setShowLoading(true);
-    await GenreService.remove(id);
-    getAllGenres();
+    const response = await GenreService.remove(id);
+
+    switch (response) {
+      case 200:
+        getAllGenres();
+        break;
+      case 405:
+        setGenreErrorMessage("cannot delete: genre is not empty");
+        setShowLoading(false);
+        break;
+      default:
+        setGenreErrorMessage("cannot delete: unknown error");
+    }
   };
 
   // 📌📌📌🚨 return

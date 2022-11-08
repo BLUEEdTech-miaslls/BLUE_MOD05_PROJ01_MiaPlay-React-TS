@@ -29,10 +29,10 @@ const GenreService = {
       },
     }).then((response: AxiosResponse) => response.data),
 
-  remove: (id: string): Promise<boolean> =>
-    API.delete(endpoints.removeGenre(id)).then(
-      (response: AxiosResponse) => response.status === 200
-    ),
+  remove: (id: string): Promise<number> =>
+    API.delete(endpoints.removeGenre(id))
+      .then((response: AxiosResponse) => response.status)
+      .catch((err) => err.response.status),
 };
 
 export default GenreService;

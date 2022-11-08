@@ -55,8 +55,8 @@ Frontend ReactTS
 ---
 
 - 🔳 form validations
-- 🔳 cannot delete genre (not empty)
 
+- ✅ cannot delete genre (not empty)
 - ✅ close one form when opening another
 - ✅ Game: - extract GameCard component
 - ✅ LOADING component

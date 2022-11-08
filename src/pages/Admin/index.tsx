@@ -123,6 +123,10 @@ const Admin = () => {
     setGenreFormState(emptyGenre);
   };
 
+  // 📌 GENRE error
+
+  const [genreErrorMessage, setGenreErrorMessage] = useState<string>("");
+
   // 📌📌📌🚨 ADMIN return
 
   return (
@@ -170,8 +174,10 @@ const Admin = () => {
                   <AdminGenreList
                     genres={genres}
                     showEmptyGenres={showEmptyGenres}
+                    genreErrorMessage={genreErrorMessage}
                     setShowLoading={setShowLoading}
                     setGenreFormState={setGenreFormState}
+                    setGenreErrorMessage={setGenreErrorMessage}
                     getAllGenres={getAllGenres}
                     openGenreForm={openGenreForm}
                   />

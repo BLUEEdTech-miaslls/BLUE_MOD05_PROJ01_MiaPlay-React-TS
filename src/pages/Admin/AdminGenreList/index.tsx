@@ -7,14 +7,20 @@ import { useState } from "react";
 const AdminGenreList = ({
   genres,
   showEmptyGenres,
+  genreErrorMessage,
   setShowLoading,
   setGenreFormState,
+  setGenreErrorMessage,
   getAllGenres,
   openGenreForm,
 }: AdminGenreListProps) => {
+  // 📌
+
   const [genreIconMode, setGenreIconMode] = useState<"edit" | "delete">(
     "delete"
   );
+
+  // 📌📌📌🚨  return
 
   return (
     <>
@@ -52,6 +58,21 @@ const AdminGenreList = ({
           </div>
         </div>
 
+        {genreErrorMessage.length > 0 && (
+          <div className="genre-error-container">
+            <div className="genre-error-icon">
+              <i className="bi bi-exclamation-triangle"></i>
+            </div>
+            <div className="genre-error-message">{genreErrorMessage}</div>
+            <div
+              className="genre-error-close"
+              onClick={() => setGenreErrorMessage("")}
+            >
+              <i className="bi bi-x"></i>
+            </div>
+          </div>
+        )}
+
         <ul className="admin-genre-list">
           {genres.map((genre, index) => (
             <AdminGenreListItem
@@ -60,6 +81,7 @@ const AdminGenreList = ({
               genreIconMode={genreIconMode}
               setShowLoading={setShowLoading}
               setGenreFormState={setGenreFormState}
+              setGenreErrorMessage={setGenreErrorMessage}
               getAllGenres={getAllGenres}
               openGenreForm={openGenreForm}
             />
