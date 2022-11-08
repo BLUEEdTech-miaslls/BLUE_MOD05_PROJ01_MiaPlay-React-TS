@@ -13,6 +13,17 @@ export interface GameForm {
   favorite?: boolean;
 }
 
+export interface ErrorMsgs {
+  title: string;
+  cover_imgUrl: string;
+  year: string;
+  description: string;
+  imdbScore: string;
+  trailer_youTubeUrl: string;
+  gameplay_youTubeUrl: string;
+  genres: string;
+}
+
 export interface GameFormProps {
   genres: Genre[];
   emptyGame: GameForm;

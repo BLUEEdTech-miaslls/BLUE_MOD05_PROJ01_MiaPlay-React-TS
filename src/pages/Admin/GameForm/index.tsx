@@ -2,9 +2,11 @@ import "./GameForm.css";
 
 import { useState, useEffect } from "react";
 
+import { GameForm as IGameForm, GameFormProps, ErrorMsgs } from "./types";
+import validateGameForm from "./util/validateGameForm";
+
 import GameService from "../../../api/services/GameService";
 import { GameBody } from "../../../api/types/game";
-import { GameForm as IGameForm, GameFormProps } from "./types";
 
 import { Genre } from "../../../api/types/genre";
 
@@ -41,7 +43,7 @@ const GameForm = ({
   const getImdbScoreInput = () => defaultInputValues.imdbScore;
   const getTrailerInput = () => defaultInputValues.trailer_youTubeUrl;
   const getGameplayInput = () => defaultInputValues.gameplay_youTubeUrl;
-  const getGenres = () => defaultInputValues.genres;
+  // const getGenres = () => defaultInputValues.genres;
 
   // 📌 handleChange
 
@@ -102,40 +104,59 @@ const GameForm = ({
 
   // 📌 submitGameForm
 
+  const [errorMsgs, setErrorMsgs] = useState<ErrorMsgs>({
+    title: "",
+    cover_imgUrl: "",
+    year: "",
+    description: "",
+    imdbScore: "",
+    trailer_youTubeUrl: "",
+    gameplay_youTubeUrl: "",
+    genres: "",
+  });
+
   const submitGameForm = async () => {
-    const {
-      id,
-      title,
-      cover_imgUrl,
-      year,
-      description,
-      imdbScore,
-      trailer_youTubeUrl,
-      gameplay_youTubeUrl,
-      genres,
-    } = gameFormState;
+    const formValidation = validateGameForm(gameFormState);
 
-    const genreIdList = genres.map((genre) => genre._id);
+    if (formValidation.gameFormValid) {
+      const {
+        id,
+        title,
+        cover_imgUrl,
+        year,
+        description,
+        imdbScore,
+        trailer_youTubeUrl,
+        gameplay_youTubeUrl,
+        genres,
+      } = gameFormState;
 
-    const gameBody: GameBody = {
-      title: title,
-      cover_imgUrl: cover_imgUrl,
-      year: Number(year),
-      description: description,
-      imdbScore: Number(imdbScore),
-      trailer_youTubeUrl: trailer_youTubeUrl,
-      gameplay_youTubeUrl: gameplay_youTubeUrl,
-      genres: genreIdList,
-    };
+      const genreIdList = genres.map((genre) => genre._id);
 
-    id
-      ? await GameService.update(id, gameBody)
-      : await GameService.create(gameBody);
+      const gameBody: GameBody = {
+        title: title,
+        cover_imgUrl: cover_imgUrl,
+        year: Number(year),
+        description: description,
+        imdbScore: Number(imdbScore),
+        trailer_youTubeUrl: trailer_youTubeUrl,
+        gameplay_youTubeUrl: gameplay_youTubeUrl,
+        genres: genreIdList,
+      };
 
-    setGameFormState(emptyGame);
-    closeGameForm();
-    getAllGames();
+      id
+        ? await GameService.update(id, gameBody)
+        : await GameService.create(gameBody);
+
+      setGameFormState(emptyGame);
+      closeGameForm();
+      getAllGames();
+    } else {
+      setErrorMsgs(formValidation.errorMsgs);
+    }
   };
+
+  console.log(errorMsgs); // 🐞
 
   // 📌📌📌🚨 GameForm return
 
@@ -186,6 +207,8 @@ const GameForm = ({
                   onKeyUp={(e) => handleKeyPress(e)}
                 />
 
+                {/* {errorMsgs.title && <div>{errorMsgs.title}</div>} */}
+
                 <input
                   type="text"
                   name="cover_imgUrl"
@@ -201,7 +224,7 @@ const GameForm = ({
             {/* 📌 genres */}
 
             <div className="game-form-genres">
-              <h3 className="genre-form-title">GENRES:</h3>
+              <h3 className="genre-form-title">genre(s):</h3>
               {genres.map((genre, index) => (
                 <div
                   className="game-form-genre"
@@ -264,7 +287,7 @@ const GameForm = ({
               name="trailer_youTubeUrl"
               required
               defaultValue={getTrailerInput()}
-              placeholder="trailer YouTube URL"
+              placeholder="trailer - YouTube URL"
               onChange={(e) => handleChange(e, "trailer_youTubeUrl")}
               onKeyUp={(e) => handleKeyPress(e)}
             />
@@ -274,7 +297,7 @@ const GameForm = ({
               name="gameplay_youTubeUrl"
               required
               defaultValue={getGameplayInput()}
-              placeholder="gameplay YouTube URL"
+              placeholder="gameplay - YouTube URL"
               onChange={(e) => handleChange(e, "gameplay_youTubeUrl")}
               onKeyUp={(e) => handleKeyPress(e)}
             />
