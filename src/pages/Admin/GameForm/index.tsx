@@ -207,7 +207,9 @@ const GameForm = ({
                   onKeyUp={(e) => handleKeyPress(e)}
                 />
 
-                {/* {errorMsgs.title && <div>{errorMsgs.title}</div>} */}
+                {errorMsgs.title && (
+                  <div className="game-form-error">{errorMsgs.title}</div>
+                )}
 
                 <input
                   type="text"
@@ -218,6 +220,12 @@ const GameForm = ({
                   onChange={(e) => handleChange(e, "cover_imgUrl")}
                   onKeyUp={(e) => handleKeyPress(e)}
                 />
+
+                {errorMsgs.cover_imgUrl && (
+                  <div className="game-form-error">
+                    {errorMsgs.cover_imgUrl}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -251,6 +259,10 @@ const GameForm = ({
               ))}
             </div>
 
+            {errorMsgs.genres && (
+              <div className="game-form-error">{errorMsgs.genres}</div>
+            )}
+
             <textarea
               name="description"
               required
@@ -260,26 +272,42 @@ const GameForm = ({
               onKeyUp={(e) => handleKeyPress(e)}
             ></textarea>
 
-            <fieldset>
-              <input
-                type="text"
-                name="year"
-                required
-                defaultValue={getYearInput()}
-                placeholder="year"
-                onChange={(e) => handleChange(e, "year")}
-                onKeyUp={(e) => handleKeyPress(e)}
-              />
+            {errorMsgs.description && (
+              <div className="game-form-error">{errorMsgs.description}</div>
+            )}
 
-              <input
-                type="text"
-                name="imdbScore"
-                required
-                defaultValue={getImdbScoreInput()}
-                placeholder="IMDB score"
-                onChange={(e) => handleChange(e, "imdbScore")}
-                onKeyUp={(e) => handleKeyPress(e)}
-              />
+            <fieldset>
+              <div className="wrapper">
+                <input
+                  type="text"
+                  name="year"
+                  required
+                  defaultValue={getYearInput()}
+                  placeholder="year"
+                  onChange={(e) => handleChange(e, "year")}
+                  onKeyUp={(e) => handleKeyPress(e)}
+                />
+
+                {errorMsgs.year && (
+                  <div className="game-form-error">{errorMsgs.year}</div>
+                )}
+              </div>
+
+              <div className="wrapper">
+                <input
+                  type="text"
+                  name="imdbScore"
+                  required
+                  defaultValue={getImdbScoreInput()}
+                  placeholder="IMDB score"
+                  onChange={(e) => handleChange(e, "imdbScore")}
+                  onKeyUp={(e) => handleKeyPress(e)}
+                />
+
+                {errorMsgs.imdbScore && (
+                  <div className="game-form-error">{errorMsgs.imdbScore}</div>
+                )}
+              </div>
             </fieldset>
 
             <input
@@ -292,6 +320,12 @@ const GameForm = ({
               onKeyUp={(e) => handleKeyPress(e)}
             />
 
+            {errorMsgs.trailer_youTubeUrl && (
+              <div className="game-form-error">
+                {errorMsgs.trailer_youTubeUrl}
+              </div>
+            )}
+
             <input
               type="text"
               name="gameplay_youTubeUrl"
@@ -301,6 +335,12 @@ const GameForm = ({
               onChange={(e) => handleChange(e, "gameplay_youTubeUrl")}
               onKeyUp={(e) => handleKeyPress(e)}
             />
+
+            {errorMsgs.gameplay_youTubeUrl && (
+              <div className="game-form-error">
+                {errorMsgs.gameplay_youTubeUrl}
+              </div>
+            )}
 
             {/* 📌 buttons */}
 

@@ -14,12 +14,13 @@
 .game-form-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 2rem;
 }
 
 .game-form-cover-img {
   width: 4rem;
-  aspect-ratio: 1;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +39,17 @@
   flex: 1;
 }
 
+.game-form-error {
+  font-size: small;
+  color: #009999;
+  margin-top: -0.5rem;
+}
+
 .game-form-genres {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   gap: 1rem;
 }
 
@@ -59,6 +66,12 @@
 .game-form fieldset {
   display: flex;
   justify-content: space-between;
+}
+
+.game-form fieldset .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .game-form-buttons {
