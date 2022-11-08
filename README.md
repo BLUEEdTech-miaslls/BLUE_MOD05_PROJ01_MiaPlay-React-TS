@@ -71,8 +71,9 @@ Frontend ReactTS
 
 ---
 
-- 🔳 form validations
+- 🔳 STOP THIS - go to proj 2
 
+- ✅ form validations
 - ✅ cannot delete genre (not empty)
 - ✅ close one form when opening another
 - ✅ Game: - extract GameCard component
