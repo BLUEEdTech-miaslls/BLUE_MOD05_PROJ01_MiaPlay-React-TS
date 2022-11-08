@@ -10,7 +10,7 @@
 }
 
 .genre-form-error {
-  font-size: small;
-  color: #009999;
+  font-size: smaller;
+  color: #e52717;
   margin-top: 0.5rem;
 }
