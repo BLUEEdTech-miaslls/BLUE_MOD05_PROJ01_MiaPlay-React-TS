@@ -16,9 +16,3 @@ header {
 .main-menu {
   font-size: large;
 }
-
-@media screen and (orientation: portrait) {
-  header {
-    margin-bottom: 4rem;
-  }
-}
