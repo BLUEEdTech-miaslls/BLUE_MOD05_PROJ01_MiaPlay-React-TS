@@ -1,5 +1,7 @@
 # 🎮 **MiaPlay**
 
+## (⚠ API currently down)
+
 ## 🔗 [miaplay-01.vercel.app](http://miaplay-01.vercel.app)
 
 ---
