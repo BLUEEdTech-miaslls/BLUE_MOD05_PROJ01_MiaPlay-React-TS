@@ -1,8 +1,6 @@
 # 🎮 **MiaPlay**
 
-## (⚠ API currently down)
-
-## 🔗 [miaplay-01.vercel.app](http://miaplay-01.vercel.app)
+### \[demo\] 🔗 [miaplay.vercel.app](https://miaplay.vercel.app)
 
 ---
 
@@ -33,22 +31,14 @@
 
 ---
 
-## **API**
+## **SERVER**
 
-(⚠ API currently down)
+### 🔗 [miaplay-01-server.fly.dev](https://miaplay-01-server.fly.dev/)
 
-### 🔗 [miaplay-api-01.onrender.com](http://miaplay-api-01.onrender.com/)
-
-### 👩‍💻 [github.com/BLUEEdTech-miaslls/BLUE_MOD05_PROJ01_MiaPlay-API](https://github.com/BLUEEdTech-miaslls/BLUE_MOD05_PROJ01_MiaPlay-API)
+### 👩‍💻 [github.com/miaslls/BLUE_MiaPlay_Express-Mongoose](https://github.com/miaslls/BLUE_MiaPlay_Express-Mongoose)
 
 ---
 
-- layout imported from [github.com/miaslls/MiaPlay-React-TS](https://github.com/miaslls/MiaPlay-React-TS)
-  - to view development process, access [MiaPlay-React-TS/commits/main](https://github.com/miaslls/MiaPlay-React-TS/commits/main)
-
----
-
----
 
 ## **Critérios de Avaliação**
 
@@ -73,7 +63,6 @@ Frontend ReactTS
 
 ## **TODO:**
 
----
 
 - 🔳 STOP THIS - go to proj 2
 
@@ -88,7 +77,5 @@ Frontend ReactTS
 - ✅ 404 - NOT FOUND
   - ✅ Home
   - ✅ Game
-
----
 
 ---
