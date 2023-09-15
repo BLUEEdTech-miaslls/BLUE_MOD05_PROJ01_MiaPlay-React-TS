@@ -1,5 +1,5 @@
-This page is in <img src="assets/img/flag-en.png" width="14" alt="English"> English.
-Para visualizar essa página em <img src="assets/img/flag-pt-br.png" width="14" alt="Português"> Português, [clique aqui](./README-ptbr.md).
+Essa página está em <img src="assets/img/flag-pt-br.png" width="14" alt="Português"> Português.
+To view this page in <img src="assets/img/flag-en.png" width="14" alt="English"> English, [click here](./README.md).
 
 ---
 
@@ -11,7 +11,7 @@ Para visualizar essa página em <img src="assets/img/flag-pt-br.png" width="14" 
 ![Static Badge: React Router](https://img.shields.io/badge/React_Router-5a5a5a?logo=reactrouter)
 ![Static Badge: TypeScript](https://img.shields.io/badge/TypeScript-5a5a5a?logo=typescript)
 
-Application where you can CRUD(create, read, update, delete) genres and games, favorite games, and list the games by genre, with favorites on top.
+Aplicação onde você pode realizar operações CRUD (criar, ler, atualizar, excluir) em gêneros e jogos, marcar jogos como favoritos e listar os jogos por gênero, com os favoritos no topo.
 
 ## 🔗 Demo
 
@@ -27,10 +27,10 @@ Application where you can CRUD(create, read, update, delete) genres and games, f
 
 - [MiaPlay-server](https://github.com/miaslls/MiaPlay-server#readme)
 
-## 👩‍💻 Authors
+## 👩‍💻 Autoria
 
 - [@miaslls](https://www.github.com/miaslls)
 
-## 🫶 Acknowledgements
+## 🫶 Recursos / Agradecimentos
 
 - [Bootstrap](https://icons.getbootstrap.com/)
