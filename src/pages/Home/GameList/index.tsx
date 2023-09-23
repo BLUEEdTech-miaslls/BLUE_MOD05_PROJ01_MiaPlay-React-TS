@@ -19,7 +19,7 @@ const GameList = ({ name, games, toggleFavorite }: GameListProps) => {
           {games.map((game, index) => (
             <GameListItem
               key={`game-list-item-${index}`}
-              id={game._id}
+              id={game.id}
               image={game.cover_imgUrl}
               title={game.title}
               year={game.year}

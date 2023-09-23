@@ -88,7 +88,7 @@ const GameForm = ({
   const [selectedGenreIds, setSelectedGenreIds] = useState<string[]>([]);
 
   useEffect(() => {
-    const genreIds = gameFormState.genres.map((genre) => genre._id);
+    const genreIds = gameFormState.genres.map((genre) => genre.id);
 
     setSelectedGenres(gameFormState.genres);
     setSelectedGenreIds(genreIds);
@@ -96,7 +96,7 @@ const GameForm = ({
 
   const handleGenreSelect = (genre: Genre) => {
     setSelectedGenres([...selectedGenres, genre]);
-    setSelectedGenreIds([...selectedGenreIds, genre._id]);
+    setSelectedGenreIds([...selectedGenreIds, genre.id]);
     setGameFormState({
       ...gameFormState,
       ["genres"]: [...selectedGenres, genre],
@@ -106,10 +106,10 @@ const GameForm = ({
 
   const handleGenreDeselect = (genre: Genre) => {
     const afterDeselect = selectedGenres.filter(
-      (selected) => genre._id !== selected._id
+      (selected) => genre.id !== selected.id
     );
 
-    const idsAfterDeselect = afterDeselect.map((genre) => genre._id);
+    const idsAfterDeselect = afterDeselect.map((genre) => genre.id);
 
     setSelectedGenres(afterDeselect);
     setSelectedGenreIds(idsAfterDeselect);
@@ -134,7 +134,7 @@ const GameForm = ({
         genres,
       } = gameFormState;
 
-      const genreIdList = genres.map((genre) => genre._id);
+      const genreIdList = genres.map((genre) => genre.id);
 
       const gameBody: GameBody = {
         title: title,
@@ -239,7 +239,7 @@ const GameForm = ({
                   className="game-form-genre"
                   key={`game-form-genre-${index}`}
                 >
-                  {selectedGenreIds.includes(genre._id) ? (
+                  {selectedGenreIds.includes(genre.id) ? (
                     <div
                       className="game-form-genre-checkbox"
                       onClick={() => handleGenreDeselect(genre)}

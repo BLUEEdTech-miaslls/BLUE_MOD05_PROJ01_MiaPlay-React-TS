@@ -17,7 +17,7 @@ const AdminGenreListItem = ({
   // 📌 handleEdit
 
   const handleEdit = (genre: Genre) => {
-    setGenreFormState({ id: genre._id, name: genre.name });
+    setGenreFormState({ id: genre.id, name: genre.name });
     openGenreForm();
   };
 
@@ -49,7 +49,7 @@ const AdminGenreListItem = ({
         {genreIconMode === "delete" && (
           <div
             className="admin-game-options-icon clickable"
-            onClick={() => handleRemove(genre._id)}
+            onClick={() => handleRemove(genre.id)}
           >
             <i className="bi bi-x"></i>
           </div>

@@ -16,7 +16,7 @@ export interface GameUpdateFavorite {
 }
 
 export interface Game {
-  _id: string;
+  id: string;
   title: string;
   cover_imgUrl: string;
   year: number;

@@ -23,7 +23,7 @@ const AdminGameListItem = ({
   const handleEdit = (game: Game) => {
     setGameFormState({
       ...game,
-      ["id"]: game._id,
+      ["id"]: game.id,
       ["year"]: game.year.toString(),
       ["imdbScore"]: game.imdbScore.toString(),
     });
@@ -52,7 +52,7 @@ const AdminGameListItem = ({
 
         <div
           className="admin-game-column admin-game-name clickable"
-          onClick={() => navigate(`${RoutePath.GAME}/${game._id}`)}
+          onClick={() => navigate(`${RoutePath.GAME}/${game.id}`)}
         >
           {game.title}
         </div>
@@ -70,7 +70,7 @@ const AdminGameListItem = ({
         {gameIconMode === "delete" && (
           <div
             className="admin-game-options-icon clickable"
-            onClick={() => handleRemove(game._id)}
+            onClick={() => handleRemove(game.id)}
           >
             <i className="bi bi-x"></i>
           </div>

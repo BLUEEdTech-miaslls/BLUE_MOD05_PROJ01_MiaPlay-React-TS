@@ -11,7 +11,7 @@ import { Game, GameUpdateFavorite } from "../../../api/types/game";
 
 const GameCard = ({ gameId, showLoading, setShowLoading }: GameCardProps) => {
   const emptyGame: Game = {
-    _id: "",
+    id: "",
     title: "",
     cover_imgUrl: "",
     year: 0,
@@ -34,7 +34,7 @@ const GameCard = ({ gameId, showLoading, setShowLoading }: GameCardProps) => {
   const getGameById = async (id: string) => {
     const response = await GameService.getById(id);
 
-    if (!response._id) {
+    if (!response.id) {
       navigate(RoutePath.NOTFOUND);
     } else {
       // TODO: formatVideoIdList(game)
@@ -60,7 +60,7 @@ const GameCard = ({ gameId, showLoading, setShowLoading }: GameCardProps) => {
     const body: GameUpdateFavorite = { favorite: favorite ? false : true };
     const response: Game = await GameService.update(id, body);
 
-    if (!response._id) {
+    if (!response.id) {
       navigate(RoutePath.NOTFOUND);
     } else {
       setGame({ ...game, favorite: response.favorite });

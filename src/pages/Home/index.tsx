@@ -86,7 +86,7 @@ const Home = () => {
     const body: GameUpdateFavorite = { favorite: favorite ? false : true };
     const response: Game = await GameService.update(id, body);
 
-    if (!response._id) {
+    if (!response.id) {
       navigate(RoutePath.NOTFOUND);
     } else {
       getGameLists();
