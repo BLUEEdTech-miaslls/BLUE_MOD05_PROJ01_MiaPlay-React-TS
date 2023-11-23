@@ -6,7 +6,6 @@ To view this page in <img src="assets/img/flag-en.png" width="14" alt="English">
 # <img src="assets/img/logo.svg" height="20" alt="Project logo"> MiaPlay
 
 ![Static Badge: Study](https://img.shields.io/badge/study-blue)
-![Static Badge: Version - 1.0.0](https://img.shields.io/badge/version-1.0.0-green)
 ![Static Badge: React](https://img.shields.io/badge/React-5a5a5a?logo=react)
 ![Static Badge: React Router](https://img.shields.io/badge/React_Router-5a5a5a?logo=reactrouter)
 ![Static Badge: TypeScript](https://img.shields.io/badge/TypeScript-5a5a5a?logo=typescript)
