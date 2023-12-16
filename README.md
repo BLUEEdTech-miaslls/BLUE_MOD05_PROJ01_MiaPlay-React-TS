@@ -14,7 +14,7 @@ Application where you can CRUD(create, read, update, delete) genres and games, f
 
 ## 🔗 Demo
 
-- [miaplay.vercel.app](https://miaplay.vercel.app/)
+- [miaplay.camilasalles.dev](https://miaplay.camilasalles.dev/)
 
 ## 🖼️ Screenshots
 

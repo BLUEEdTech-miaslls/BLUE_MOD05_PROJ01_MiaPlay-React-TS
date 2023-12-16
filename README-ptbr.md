@@ -14,7 +14,7 @@ Aplicação onde você pode realizar operações CRUD (criar, ler, atualizar, ex
 
 ## 🔗 Demo
 
-- [miaplay.vercel.app](https://miaplay.vercel.app/)
+- [miaplay.camilasalles.dev](https://miaplay.camilasalles.dev/)
 
 ## 🖼️ Screenshots
 
